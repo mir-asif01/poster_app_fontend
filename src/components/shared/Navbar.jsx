@@ -14,7 +14,10 @@ function Navbar(){
                     <li>
                         <NavLink to={"/about"}>About</NavLink>
                     </li>
-                    <button className="bg-sky-300 px-5 py-2 font-semibold text-white rounded-3xl">
+                    <li>
+                        <NavLink to={"/login"}>Login</NavLink>
+                    </li>
+                    <button className="bg-indigo-500 px-5 py-2 font-semibold text-white rounded-3xl">
                         <NavLink to={"/register"}>Read/Write</NavLink>
                     </button>
                 </ul>
