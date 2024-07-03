@@ -15,6 +15,12 @@ function Navbar(){
                         <NavLink to={"/about"}>About</NavLink>
                     </li>
                     <li>
+                        <NavLink to={"/read"}>Read</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/write"}>Write</NavLink>
+                    </li>
+                    <li>
                         <NavLink to={"/login"}>Login</NavLink>
                     </li>
                     <button className="bg-indigo-500 px-5 py-2 font-semibold text-white rounded-3xl">
