@@ -1,7 +1,14 @@
+import toast,{Toaster} from "react-hot-toast"
+
 function Login(){
+
+    function showToast(){
+        toast.success("Good Toast")
+    }
     return <>
+        <Toaster position="top-center" toastOptions={{duration:1500}}/>
         <section className="py-20">
-            <h1 className="text-6xl mb-10 text-center">Login</h1>
+            <h1 className="text-6xl mb-10 text-center" onClick={showToast}>Login</h1>
             <div className="flex justify-center items-center">
                 <form className="w-2/5 border rounded-md px-14 py-10 hover:shadow-md">
                     <div className="mt-3">

@@ -9,7 +9,7 @@ function Home(){
                     <h1 className="text-8xl">To Words</h1>
                     <p className="text-3xl mt-6">Place to write ideas into reality.</p>
                     <p className="text-3xl">Developers' world to show how they write...</p>
-                    <button className="bg-indigo-500 mt-6 px-5 py-2 font-semibold text-white rounded-3xl"><NavLink to={"/register"}>Read/Write</NavLink></button>
+                    <button className="bg-indigo-500 mt-6 px-5 py-2 font-semibold text-white rounded-3xl"><NavLink to={"/register"}>Register</NavLink></button>
                 </div>
             </div>
             <div className='flex justify-center items-center'>

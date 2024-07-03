@@ -18,7 +18,7 @@ function Navbar(){
                         <NavLink to={"/login"}>Login</NavLink>
                     </li>
                     <button className="bg-indigo-500 px-5 py-2 font-semibold text-white rounded-3xl">
-                        <NavLink to={"/register"}>Read/Write</NavLink>
+                        <NavLink to={"/register"}>Register</NavLink>
                     </button>
                 </ul>
             </div>
