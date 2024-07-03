@@ -7,10 +7,17 @@ function Footer(){
                     <h1 className="text-xl">Design and Developed by <br/>
                     <span className="text-indigo-500 text-2xl font-bold">Mir Kamrul Ahsan Asif</span></h1>
                     <div className="flex justify-start items-center gap-3 mt-1">
-                        <FaLinkedin className="text-3xl cursor-pointer "></FaLinkedin>
-                        <FaGithub className="text-3xl cursor-pointer "></FaGithub>
-                        <FaFacebook className="text-3xl cursor-pointer "></FaFacebook>
+                    <a href="">
+                        <FaLinkedin className="text-3xl text-slate-800 cursor-pointer "></FaLinkedin>
+                    </a>
+                    <a href="">
+                        <FaGithub className="text-3xl text-slate-800 cursor-pointer "></FaGithub>
+                    </a>
+                    <a href="">
+                        <FaFacebook className="text-3xl text-slate-800 cursor-pointer "></FaFacebook>
+                    </a>
                     </div>
+                    <p className="text-xl mt-2">+8801315405814(whatsapp)</p>
                 </div>
             </div>
             <div className="flex justify-center items-center">
