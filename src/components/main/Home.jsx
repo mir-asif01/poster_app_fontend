@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import bannerImg from '../../assets/Programming.png'
 function Home(){
     return <>
-        <section className="bg py-40 px-20 flex justify-between items-center">
+        <section className="bg py-32 px-20 flex justify-between items-center">
             <div className='flex justify-center items-center'>
                 <div>
                     <h1 className="text-8xl">From Ideas,</h1>
