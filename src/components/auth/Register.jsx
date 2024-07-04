@@ -4,7 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 function Register() {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
   };
 
