@@ -1,19 +1,23 @@
+import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 
 function Register() {
-  function showToast() {
-    toast.success("Good Toast");
-  }
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <>
       <Toaster position="top-center" toastOptions={{ duration: 1500 }} />
       <section className="py-16">
-        <h1 className="text-6xl mb-10 text-center" onClick={showToast}>
-          Register
-        </h1>
+        <h1 className="text-6xl mb-10 text-center">Register</h1>
         <div className="flex justify-center items-center">
-          <form className="w-4/5 border rounded-md px-14 py-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="w-4/5 border rounded-md px-14 py-5"
+          >
             {/* {input fields} */}
             <div className="flex justify-between items-center gap-10">
               {/* {input fields left} */}
@@ -24,11 +28,11 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("email")}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
-                    type="text"
+                    type="email"
                     name="email"
                     placeholder="Enter your email"
-                    required
                   />
                 </div>
                 <div className="mt-3">
@@ -37,11 +41,11 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("password", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="password"
                     name="password"
                     placeholder="Enter your password"
-                    required
                   />
                 </div>
                 <div className="mt-3">
@@ -50,11 +54,11 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("userName", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
-                    name="username"
+                    name="userName"
                     placeholder="Enter your username"
-                    required
                   />
                 </div>
                 <div className="mt-3">
@@ -63,11 +67,11 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("fullName", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
-                    name="fullname"
+                    name="fullName"
                     placeholder="Enter your fullname"
-                    required
                   />
                 </div>
                 <div className="mt-3">
@@ -76,11 +80,11 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("profileImage", { required: true })}
                     className="outline-none border border-gray-300 rounded-md w-full file:bg-indigo-500 file:outline-none file:border-none file:px-2 file:py-2 file:text-white file:font-semibold"
                     type="file"
                     name="ProfileImage"
                     placeholder="Your profile image"
-                    required
                   />
                 </div>
                 <div className="mt-3">
@@ -89,11 +93,11 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("coverImage", { required: true })}
                     className="outline-none border border-gray-300 rounded-md w-full file:bg-indigo-500 file:outline-none file:border-none file:px-2 file:py-2 file:text-white file:font-semibold"
                     type="file"
                     name="coverImage"
                     placeholder="Your cover image"
-                    required
                   />
                 </div>
               </div>
@@ -105,6 +109,7 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("about", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
                     name="about"
@@ -117,9 +122,10 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("technicalSkills", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
-                    name="username"
+                    name="technicalSkills"
                     placeholder="eg- javascript,reactjs"
                   />
                 </div>
@@ -129,9 +135,10 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("currentPostion", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
-                    type="password"
-                    name="password"
+                    type="text"
+                    name="currentPostion"
                     placeholder="eg- Software Engineer"
                   />
                 </div>
@@ -141,9 +148,10 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("linkedInProfileLink", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
-                    type="password"
-                    name="password"
+                    type="text"
+                    name="linkedInProfileLink"
                     placeholder="LinkedIn profile link"
                   />
                 </div>
@@ -153,9 +161,10 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("githubProfileLink", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
-                    type="password"
-                    name="password"
+                    type="text"
+                    name="githubProfileLink"
                     placeholder="Github profile link"
                   />
                 </div>
@@ -165,9 +174,10 @@ function Register() {
                   </label>
                   <br />
                   <input
+                    {...register("facebookProfileLink", { required: true })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
-                    type="password"
-                    name="password"
+                    type="text"
+                    name="facebookProfileLink"
                     placeholder="Facebook profile link"
                   />
                 </div>
