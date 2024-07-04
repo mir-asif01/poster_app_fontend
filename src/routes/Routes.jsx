@@ -6,37 +6,41 @@ import Login from "../components/auth/Login";
 import About from "../components/main/About";
 import Read from "../components/main/Read";
 import Write from "../components/main/Write";
+import Profile from "../components/main/Profile";
 
 export const routes = createBrowserRouter([
-    {
-        path : "/",
-        element : <MainLayout></MainLayout>,
-        children : [
-            {
-                path : "/",
-                element : <Home></Home>
-            },
-            {
-                path : "/about",
-                element : <About></About>
-            },
-            {
-                path : "/read",
-                element : <Read></Read>
-            },
-            {
-                path : "/write",
-                element : <Write></Write>
-            },
-            {
-                path : "/register",
-                element : <Register></Register>
-            },
-            {
-                path : "/login",
-                element : <Login></Login>
-            },
-            
-        ]
-    }
-]) 
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/read",
+        element: <Read></Read>,
+      },
+      {
+        path: "/write",
+        element: <Write></Write>,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+    ],
+  },
+]);

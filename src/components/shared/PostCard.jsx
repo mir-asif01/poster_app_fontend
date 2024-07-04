@@ -5,7 +5,7 @@ import { FaRegBookmark, FaRegHeart } from "react-icons/fa";
 function PostCard() {
   return (
     <NavLink to={"/login"}>
-      <div className="w-2/6 border bg-card drop-shadow-sm shadow-indigo-200 border-gray-300 rounded-md">
+      <div className="border bg-card drop-shadow-sm shadow-indigo-200 border-gray-300 rounded-md">
         <div className="border-b border-gray-200">
           <img src={img} className="w-full h-52 p-2" alt="" />
         </div>
