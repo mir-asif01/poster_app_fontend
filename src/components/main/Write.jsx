@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { Context } from "../../context/Context";
+import { useContext } from "react";
 
 function Write() {
   const { register, handleSubmit } = useForm();
@@ -10,6 +12,7 @@ function Write() {
     post.append("summary", data.summary);
     post.append("content", data.content);
   };
+  const { user } = useContext(Context);
   return (
     <>
       <section className="px-10 py-32 flex justify-center items-center">
