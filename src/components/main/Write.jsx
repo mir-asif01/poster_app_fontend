@@ -9,6 +9,7 @@ function Write() {
     const post = new FormData();
     post.append("title", data.title);
     post.append("postImage", data.postImage[0]);
+    post.append("tags", data.tagse);
     post.append("summary", data.summary);
     post.append("content", data.content);
   };
@@ -46,6 +47,20 @@ function Write() {
               type="file"
               name="postImage"
               placeholder="Your post image"
+              required
+            />
+          </div>
+          <div className="mt-3">
+            <label className="" htmlFor="password">
+              Tags
+            </label>
+            <br />
+            <input
+              {...register("tags")}
+              className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
+              type="text"
+              name="tags"
+              placeholder="eg - javascript,reactjs..."
               required
             />
           </div>

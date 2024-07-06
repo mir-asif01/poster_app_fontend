@@ -7,6 +7,7 @@ import About from "../components/main/About";
 import Read from "../components/main/Read";
 import Write from "../components/main/Write";
 import Profile from "../components/main/Profile";
+import PostDetails from "../components/main/PostDetails";
 
 export const routes = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const routes = createBrowserRouter([
       {
         path: "/read",
         element: <Read></Read>,
+      },
+      {
+        path: "/read/:id",
+        element: <PostDetails />,
       },
       {
         path: "/write",

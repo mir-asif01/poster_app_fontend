@@ -9,7 +9,6 @@ function Read() {
   const handleTabClick = (e) => {
     setActiveTab(e.target.name);
   };
-  console.log(activeTab);
   return (
     <>
       <section className="py-10 px-48">
