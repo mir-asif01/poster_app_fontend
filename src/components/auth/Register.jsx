@@ -11,17 +11,17 @@ function Register() {
   return (
     <>
       <Toaster position="top-center" toastOptions={{ duration: 1500 }} />
-      <section className="py-16">
+      <section className="p-4 md:py-16">
         <h1 className="text-6xl mb-10 text-center">Register</h1>
         <div className="flex justify-center items-center">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="w-4/5 border rounded-md px-14 py-5"
+            className="w-full md:w-4/5 border rounded-md px-3 md:px-14 py-5"
           >
             {/* {input fields} */}
-            <div className="flex justify-between items-center gap-10">
+            <div className="flex flex-col justify-between items-center md:gap-10">
               {/* {input fields left} */}
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <div className="mt-3">
                   <label className="" htmlFor="email">
                     Email
@@ -102,7 +102,7 @@ function Register() {
                 </div>
               </div>
               {/* {input fields right} */}
-              <div className="w-1/2">
+              <div className="w-full md:w-1/2">
                 <div className="mt-3">
                   <label className="" htmlFor="about">
                     About
