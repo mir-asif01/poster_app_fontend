@@ -13,14 +13,14 @@ function Read() {
     <>
       <section className="md:py-10 md:px-48">
         <div className="border-b mb-10 border-slate-200 flex justify-between items-center">
-          <div className="flex justify-between items-center px-2 py-4">
-            <div>
+          <div className="flex justify-between items-center gap-10 px-2 py-4">
+            <div className="flex justify-center items-center gap-5">
               <button
                 onClick={(e) => {
                   handleTabClick(e);
                 }}
                 name="all"
-                className="mx-3 md:pb-3 px-5"
+                className="md:mx-3 md:pb-3 md:px-5"
               >
                 For You
               </button>
@@ -29,13 +29,13 @@ function Read() {
                   handleTabClick(e);
                 }}
                 name="following"
-                className="mx-3 md:pb-3 px-5"
+                className="md:mx-3 md:pb-3 md:px-5"
               >
                 Following
               </button>
             </div>
             <div className="flex justify-between items-center">
-              <div className="mr-5">Filter</div>
+              <div className="md:mr-5">Filter</div>
               <select
                 name="Filter By Tags"
                 className="px-10 py-1 outline-none border border-gray-300 rounded-md"

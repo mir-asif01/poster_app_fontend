@@ -19,7 +19,7 @@ function Register() {
             className="w-full md:w-4/5 border rounded-md px-3 md:px-14 py-5"
           >
             {/* {input fields} */}
-            <div className="flex flex-col justify-between items-center md:gap-10">
+            <div className="flex flex-col md:flex-row justify-between items-center md:gap-10">
               {/* {input fields left} */}
               <div className="w-full md:w-1/2">
                 <div className="mt-3">

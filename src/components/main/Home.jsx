@@ -3,7 +3,7 @@ import bannerImg from "../../assets/Programming.png";
 function Home() {
   return (
     <>
-      <section className="bg py-3 px-4 flex justify-between items-center">
+      <section className="bg py-3 px-4 md:px-20 md:py-40 flex justify-between items-center">
         <div className="flex flex-col md:flex-row justify-center items-center">
           <div>
             <h1 className="text-4xl md:text-8xl">From Ideas,</h1>
