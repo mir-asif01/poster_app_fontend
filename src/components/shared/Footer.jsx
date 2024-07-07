@@ -2,8 +2,8 @@ import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 function Footer() {
   return (
     <>
-      <footer className="px-20 bg py-10 border-t border-black flex justify-between items-center">
-        <div className="flex justify-center items-center">
+      <footer className="px-7 py-4 md:px-20 bg md:py-10 border-t border-black">
+        <div className="flex flex-col md:flex-row gap-10 justify-center md:justify-between items-center">
           <div className="">
             <h1 className="text-xl">
               Design and Developed by <br />
@@ -30,17 +30,17 @@ function Footer() {
             </div>
             <p className="text-xl mt-2">+8801315405814(whatsapp)</p>
           </div>
-        </div>
-        <div className="flex justify-center items-center">
-          <div className="flex">
-            <input
-              type="text"
-              placeholder="Email to support team"
-              className="px-3 py-2 w-full outline-none text-black rounded-l-md"
-            />
-            <button className="px-5 py-2 font-semibold bg-indigo-500 text-white rounded-r-md">
-              Send
-            </button>
+          <div className="flex justify-center items-center">
+            <div className="flex">
+              <input
+                type="text"
+                placeholder="asifbsb2002@gmail.com"
+                className="px-3 py-2 w-full outline-none text-black rounded-l-md"
+              />
+              <button className="px-5 py-2 font-semibold bg-indigo-500 text-white rounded-r-md">
+                Send
+              </button>
+            </div>
           </div>
         </div>
       </footer>

@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="flex sticky top-0 z-10 bg justify-between items-center md:px-20 md:py-4 border-b border-black">
+      <nav className="flex sticky top-0 z-10 bg justify-between items-center px-7 py-4 md:px-20 md:py-4 border-b border-black">
         <div>
           <h1 className="text-4xl font-bold">Poster</h1>
         </div>

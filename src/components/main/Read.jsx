@@ -11,43 +11,45 @@ function Read() {
   };
   return (
     <>
-      <section className="py-10 px-48">
+      <section className="md:py-10 md:px-48">
         <div className="border-b mb-10 border-slate-200 flex justify-between items-center">
-          <div>
-            <button
-              onClick={(e) => {
-                handleTabClick(e);
-              }}
-              name="all"
-              className="mx-3 pb-3 px-5"
-            >
-              For You
-            </button>
-            <button
-              onClick={(e) => {
-                handleTabClick(e);
-              }}
-              name="following"
-              className="mx-3 pb-3 px-5"
-            >
-              Following
-            </button>
-          </div>
-          <div className="">
-            <span className="mr-5">Filter by category</span>
-            <select
-              name="Filter By Tags"
-              className="px-10 py-1 outline-none border border-gray-300 rounded-md"
-              id="Category"
-            >
-              <option value="one">one</option>
-              <option value="one">one</option>
-              <option value="one">one</option>
-              <option value="one">one</option>
-            </select>
+          <div className="flex justify-between items-center px-2 py-4">
+            <div>
+              <button
+                onClick={(e) => {
+                  handleTabClick(e);
+                }}
+                name="all"
+                className="mx-3 md:pb-3 px-5"
+              >
+                For You
+              </button>
+              <button
+                onClick={(e) => {
+                  handleTabClick(e);
+                }}
+                name="following"
+                className="mx-3 md:pb-3 px-5"
+              >
+                Following
+              </button>
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="mr-5">Filter</div>
+              <select
+                name="Filter By Tags"
+                className="px-10 py-1 outline-none border border-gray-300 rounded-md"
+                id="Category"
+              >
+                <option value="one">one</option>
+                <option value="one">one</option>
+                <option value="one">one</option>
+                <option value="one">one</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div className="col-span-7 grid grid-cols-2 gap-10 items-center justify-center">
+        <div className="col-span-7 p-5 grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-center">
           {activeTab === "following" ? (
             <>
               <PostCard />
