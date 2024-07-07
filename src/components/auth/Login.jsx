@@ -10,12 +10,12 @@ function Login() {
   return (
     <>
       <Toaster position="top-center" toastOptions={{ duration: 1500 }} />
-      <section className="py-20">
+      <section className="md:py-20 py-10">
         <h1 className="text-6xl mb-10 text-center">Login</h1>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center px-5">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="w-2/5 border rounded-md px-14 py-10"
+            className="w-full md:w-2/5 border rounded-md px-4 py-3 md:px-14 md:py-10"
           >
             <div className="mt-3">
               <label className="text-xl" htmlFor="email">

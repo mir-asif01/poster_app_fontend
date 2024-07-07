@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="flex sticky top-0 z-10 bg justify-between items-center px-7 py-4 md:px-20 md:py-4 border-b border-black">
+      <nav className="flex sticky top-0 z-10 bg justify-between items-center px-4 py-3 md:px-20 md:py-4 border-b border-black">
         <div>
           <h1 className="text-4xl font-bold">Poster</h1>
         </div>
@@ -36,12 +36,8 @@ function Navbar() {
                 <li>
                   <NavLink to={"/about"}>About</NavLink>
                 </li>
-
-                <li>
-                  <NavLink to={"/login"}>Login</NavLink>
-                </li>
                 <button className="bg-indigo-500 px-5 py-2 font-semibold text-white rounded-3xl">
-                  <NavLink to={"/register"}>Register</NavLink>
+                  <NavLink to={"/login"}>Login</NavLink>
                 </button>
               </>
             )}
