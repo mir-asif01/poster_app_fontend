@@ -8,6 +8,7 @@ import Read from "../components/main/Read";
 import Write from "../components/main/Write";
 import Profile from "../components/main/Profile";
 import PostDetails from "../components/main/PostDetails";
+import ErrorPage from "../components/shared/ErrorPage";
 
 export const routes = createBrowserRouter([
   {
@@ -46,6 +47,11 @@ export const routes = createBrowserRouter([
         path: "/login",
         element: <Login></Login>,
       },
+      {
+        path : "*",
+        element : <ErrorPage/>
+
+      }
     ],
   },
 ]);

@@ -1,8 +1,12 @@
+import { NavLink } from "react-router-dom";
 import img from "../../assets/Login.png";
 function Profile() {
   return (
     <>
       <section className="flex justify-center items-center p-10 gap-10 w-full">
+        <div>
+          <NavLink to={"/edit"}>Edit</NavLink>
+        </div>
         <div className="p-6 border w-1/3">
           <div className="flex flex-col items-center ">
             <img
