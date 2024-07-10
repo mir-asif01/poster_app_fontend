@@ -4,7 +4,16 @@ function Profile() {
   return (
     <>
       <section className="flex justify-center items-center p-10 gap-10 w-full">
-       
+      <div>
+          <div>
+            <ul>
+              <li><NavLink to={"/edit"}>Edit</NavLink></li>
+              <li><NavLink to={"/all-posts"}>All-posts</NavLink></li>
+              <li><NavLink to={"/friends"}>Friends</NavLink></li>
+              <li><NavLink to={"/followers"}>Followers</NavLink></li>
+            </ul>
+          </div>
+        </div>
         <div className="p-6 border-l w-1/3">
           <div className="flex flex-col items-center ">
             <img

@@ -12,6 +12,7 @@ import ErrorPage from "../components/shared/ErrorPage";
 import Edit from "../components/profile/Edit";
 import AllPosts from "../components/profile/AllPosts";
 import Friends from "../components/profile/Friends";
+import Followers from "../components/profile/Followers";
 
 export const routes = createBrowserRouter([
   {
