@@ -9,7 +9,9 @@ import Write from "../components/main/Write";
 import Profile from "../components/main/Profile";
 import PostDetails from "../components/main/PostDetails";
 import ErrorPage from "../components/shared/ErrorPage";
-import Edit from "../components/main/Edit";
+import Edit from "../components/profile/Edit";
+import AllPosts from "../components/profile/AllPosts";
+import Friends from "../components/profile/Friends";
 
 export const routes = createBrowserRouter([
   {
@@ -45,10 +47,16 @@ export const routes = createBrowserRouter([
         element : <Edit/>
       },
       {
-          path : "all-posts"
+          path : "all-posts",
+          element : <AllPosts/>
       },
       {
-        path : "friends"
+        path : "friends",
+        element : <Friends/>
+      },
+      {
+        path : "followers",
+        element : <Followers/>
       },
       {
         path : "friend-requests"

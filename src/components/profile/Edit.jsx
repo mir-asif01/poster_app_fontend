@@ -1,5 +1,5 @@
 export default function Edit(){
     return <>
-        <h1>This is edit page</h1>
+        <h1>This is edit profile page</h1>
     </>
 }

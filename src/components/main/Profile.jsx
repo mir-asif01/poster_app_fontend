@@ -4,14 +4,14 @@ function Profile() {
   return (
     <>
       <section className="flex justify-center items-center p-10 gap-10 w-full">
-        <div className="p-6 border w-1/3">
+       
+        <div className="p-6 border-l w-1/3">
           <div className="flex flex-col items-center ">
             <img
               src={img}
               className="w-52 h-52 rounded-full border border-indigo-200"
               alt=""
             />
-
             <div className="text-center">
               <h1 className="text-xl font-semibold mt-4 mb-0">
                 Mir Kamrul Ahsan Asif
