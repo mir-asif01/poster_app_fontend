@@ -8,7 +8,7 @@ function PostDetails() {
       <section className="p-3 md:px-56">
       <div className="border bg-card drop-shadow-sm shadow-indigo-200 border-gray-300 rounded-md">
       <div className="border-b border-gray-200">
-        <img src={img} className="w-full h-52 p-2" alt="" />
+        <img src={img} className="w-full h-80 p-2" alt="" />
       </div>
       <div className="px-4 py-3">
         {/* <div className="flex justify-between text-2xl items-center my-2">

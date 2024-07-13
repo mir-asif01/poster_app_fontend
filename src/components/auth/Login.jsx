@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
+import { NavLink } from "react-router-dom";
 
 function Login() {
   const { register, handleSubmit } = useForm();
@@ -12,6 +13,7 @@ function Login() {
       <Toaster position="top-center" toastOptions={{ duration: 1500 }} />
       <section className="md:py-20 py-10">
         <h1 className="text-6xl mb-10 text-center">Login</h1>
+        <h1 className="text-center text-xl font-medium ">Are you new user ? <NavLink className="underline text-indigo-500" to={"/register"}>Register</NavLink></h1>
         <div className="flex justify-center items-center px-5">
           <form
             onSubmit={handleSubmit(onSubmit)}
