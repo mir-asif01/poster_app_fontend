@@ -6,12 +6,15 @@ function Write() {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
+
     const post = new FormData();
     post.append("title", data.title);
     post.append("postImage", data.postImage[0]);
-    post.append("tags", data.tagse);
+    post.append("tags", data.tags);
     post.append("summary", data.summary);
     post.append("content", data.content);
+
+    console.log(post);
   };
   const { user } = useContext(Context);
   return (
