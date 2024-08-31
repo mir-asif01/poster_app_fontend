@@ -1,14 +1,42 @@
-import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
-import { NavLink } from "react-router-dom";
+import axios from "axios"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import toast, { Toaster } from "react-hot-toast"
+import { NavLink } from "react-router-dom"
 
 function Register() {
-  const { register, handleSubmit } = useForm();
-
+  const { register, handleSubmit } = useForm()
   // add validations for empty input fields
   const onSubmit = async (data) => {
-    console.log(data);
-  };
+    const userData = new FormData()
+
+    userData.append("email", data.email)
+    userData.append("password", data.password)
+    userData.append("userName", data.userName)
+    userData.append("fullName", data.fullName)
+    userData.append("profileImage", data.profileImage[0])
+    userData.append("coverImage", data.coverImage[0])
+    userData.append("currentPostion", data.currentPostion)
+    userData.append("technicalSkills", data.technicalSkills)
+    userData.append("linkedInProfileLink", data.linkedInProfileLink)
+    userData.append("githubProfileLink", data.githubProfileLink)
+    userData.append("facebookProfileLink", data.facebookProfileLink)
+
+    axios
+      .post("http://localhost:3000/register", userData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    console.log(userData.get("profileImage"))
+    console.log(data)
+  }
 
   return (
     <>
@@ -16,15 +44,16 @@ function Register() {
       <section className="p-4 md:py-16">
         <h1 className="text-6xl mb-10 text-center">Register</h1>
         <h1 className="text-center text-xl font-medium ">
-          Already have an account?{" "}
+          Already have an account?
           <NavLink className="underline text-indigo-500" to={"/login"}>
             Login
-          </NavLink>{" "}
+          </NavLink>
         </h1>
         <div className="flex justify-center items-center">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="w-full md:w-4/5 border rounded-md px-3 md:px-14 py-5"
+            encType="multipart/form-data"
           >
             {/* {input fields} */}
             <div className="flex flex-col md:flex-row justify-between items-center md:gap-10">
@@ -83,27 +112,27 @@ function Register() {
                   />
                 </div>
                 <div className="mt-3">
-                  <label className="" htmlFor="password">
+                  <label className="" htmlFor="profileImage">
                     Profile Image
                   </label>
                   <br />
                   <input
-                    {...register("profileImage", { required: true })}
-                    className="outline-none border border-gray-300 rounded-md w-full file:bg-indigo-500 file:outline-none file:border-none file:px-2 file:py-2 file:text-white file:font-semibold"
                     type="file"
-                    name="ProfileImage"
+                    {...register("profileImage")}
+                    className="outline-none border border-gray-300 rounded-md w-full file:bg-indigo-500 file:outline-none file:border-none file:px-2 file:py-2 file:text-white file:font-semibold"
+                    name="profileImage"
                     placeholder="Your profile image"
                   />
                 </div>
                 <div className="mt-3">
-                  <label className="" htmlFor="password">
+                  <label className="" htmlFor="coverImage">
                     Cover Image
                   </label>
                   <br />
                   <input
+                    type="file"
                     {...register("coverImage", { required: true })}
                     className="outline-none border border-gray-300 rounded-md w-full file:bg-indigo-500 file:outline-none file:border-none file:px-2 file:py-2 file:text-white file:font-semibold"
-                    type="file"
                     name="coverImage"
                     placeholder="Your cover image"
                   />
@@ -130,7 +159,9 @@ function Register() {
                   </label>
                   <br />
                   <input
-                    {...register("technicalSkills", { required: true })}
+                    {...register("technicalSkills", {
+                      required: true,
+                    })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
                     name="technicalSkills"
@@ -143,7 +174,9 @@ function Register() {
                   </label>
                   <br />
                   <input
-                    {...register("currentPostion", { required: true })}
+                    {...register("currentPostion", {
+                      required: true,
+                    })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
                     name="currentPostion"
@@ -156,7 +189,9 @@ function Register() {
                   </label>
                   <br />
                   <input
-                    {...register("linkedInProfileLink", { required: true })}
+                    {...register("linkedInProfileLink", {
+                      required: true,
+                    })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
                     name="linkedInProfileLink"
@@ -169,7 +204,9 @@ function Register() {
                   </label>
                   <br />
                   <input
-                    {...register("githubProfileLink", { required: true })}
+                    {...register("githubProfileLink", {
+                      required: true,
+                    })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
                     name="githubProfileLink"
@@ -182,7 +219,9 @@ function Register() {
                   </label>
                   <br />
                   <input
-                    {...register("facebookProfileLink", { required: true })}
+                    {...register("facebookProfileLink", {
+                      required: true,
+                    })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
                     name="facebookProfileLink"
@@ -202,6 +241,6 @@ function Register() {
         </div>
       </section>
     </>
-  );
+  )
 }
-export default Register;
+export default Register

@@ -16,7 +16,6 @@ function Write() {
 
       console.log(post)
    }
-   const { user } = useContext(Context)
    return (
       <>
          <section className="p-2 md:px-10 py-3 md:py-32 md:flex justify-center items-center">
