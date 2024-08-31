@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast"
 import { NavLink } from "react-router-dom"
 
 function Register() {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, reset } = useForm()
   // add validations for empty input fields
   const onSubmit = async (data) => {
     const userData = new FormData()
@@ -22,14 +22,17 @@ function Register() {
     userData.append("githubProfileLink", data.githubProfileLink)
     userData.append("facebookProfileLink", data.facebookProfileLink)
 
-    axios
+    await axios
       .post("http://localhost:3000/register", userData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => {
-        console.log(res)
+        if (res.data.success) {
+          toast.success("Registration Successfull")
+          reset() // this method is from react-hook-form to reset the form to the default state or empty
+        }
       })
       .catch((error) => {
         console.log(error)
@@ -40,7 +43,7 @@ function Register() {
 
   return (
     <>
-      <Toaster position="top-center" toastOptions={{ duration: 1500 }} />
+      <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
       <section className="p-4 md:py-16">
         <h1 className="text-6xl mb-10 text-center">Register</h1>
         <h1 className="text-center text-xl font-medium ">
