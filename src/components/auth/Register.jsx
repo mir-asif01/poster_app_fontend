@@ -2,10 +2,11 @@ import axios from "axios"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import toast, { Toaster } from "react-hot-toast"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 
 function Register() {
   const { register, handleSubmit, reset } = useForm()
+  const navigate = useNavigate()
   // add validations for empty input fields
   const onSubmit = async (data) => {
     const userData = new FormData()
@@ -32,6 +33,7 @@ function Register() {
         if (res.data.success) {
           toast.success("Registration Successfull")
           reset() // this method is from react-hook-form to reset the form to the default state or empty
+          navigate("/login")
         }
       })
       .catch((error) => {

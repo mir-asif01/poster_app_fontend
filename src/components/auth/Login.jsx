@@ -1,18 +1,37 @@
-import { useForm } from "react-hook-form";
-import toast, { Toaster } from "react-hot-toast";
-import { NavLink } from "react-router-dom";
+import axios from "axios"
+import { useForm } from "react-hook-form"
+import toast, { Toaster } from "react-hot-toast"
+import { NavLink, useNavigate } from "react-router-dom"
+import { savaUserInfoToLocalStorage } from "../../utils/localStorage"
 
 function Login() {
-  const { register, handleSubmit } = useForm();
-
+  const { register, handleSubmit, reset } = useForm()
+  const navigate = useNavigate()
   // add validations for empty input fields
   const onSubmit = async (data) => {
-    console.log(data);
-  };
+    await axios
+      .post("http://localhost:3000/login", data)
+      .then((res) => {
+        if (res?.data.success) {
+          toast.success(res?.data?.message)
+          reset()
+          savaUserInfoToLocalStorage(res?.data?.user)
+          setTimeout(() => {
+            navigate("/")
+          }, 2000)
+        } else if (!res?.data?.success) {
+          toast.error(res?.data?.message)
+          reset()
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   return (
     <>
-      <Toaster position="top-center" toastOptions={{ duration: 1500 }} />
+      <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
       <section className="md:py-20 py-10">
         <h1 className="text-6xl mb-10 text-center">Login</h1>
         <h1 className="text-center text-xl font-medium ">
@@ -65,6 +84,6 @@ function Login() {
         </div>
       </section>
     </>
-  );
+  )
 }
-export default Login;
+export default Login
