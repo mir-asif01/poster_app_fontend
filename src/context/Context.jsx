@@ -1,14 +1,15 @@
 import { createContext, useEffect } from "react"
-import { getUserInfoFromLocalStorage } from "../utils/localStorage"
 
 export const Context = createContext()
 
 export function ContextProvider({ children }) {
   let user = {}
-  useEffect(() => {
-    user = getUserInfoFromLocalStorage()
-  }, [])
-  const contextValue = { user }
+  //useEffect(() => {
+  const userStr = localStorage.getItem("user")
+  const userObj = JSON.parse(userStr)
+  user = { ...userObj }
+  //}, [])
+  const contextValue = {}
   return (
     <>
       <Context.Provider value={contextValue}>{children}</Context.Provider>

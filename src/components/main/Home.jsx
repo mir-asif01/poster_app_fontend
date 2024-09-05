@@ -1,6 +1,14 @@
-import { NavLink } from "react-router-dom";
-import bannerImg from "../../assets/Programming.png";
+import { NavLink, useNavigate } from "react-router-dom"
+import bannerImg from "../../assets/Programming.png"
 function Home() {
+  const navigate = useNavigate()
+  const userStr = localStorage.getItem("user")
+  const user = JSON.parse(userStr)
+
+  if (user?.email) {
+    navigate("/read")
+  }
+
   return (
     <>
       <section className="bg py-3 px-4 md:px-20 md:py-40 flex justify-between items-center">
@@ -24,7 +32,7 @@ function Home() {
         </div>
       </section>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

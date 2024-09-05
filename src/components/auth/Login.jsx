@@ -15,7 +15,7 @@ function Login() {
         if (res?.data.success) {
           toast.success(res?.data?.message)
           reset()
-          savaUserInfoToLocalStorage(res?.data?.user)
+          localStorage.setItem("user", JSON.stringify(res?.data?.user))
           setTimeout(() => {
             navigate("/")
           }, 2000)
