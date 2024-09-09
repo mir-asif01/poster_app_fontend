@@ -10,7 +10,7 @@ function Navbar() {
 
   const logoutButtonHandler = () => {
     localStorage.removeItem("user")
-    toast.success("Logout Successfull>>>>")
+    toast.success("Logout Successfull")
     setTimeout(() => {
       navigate("/")
     }, 1500)

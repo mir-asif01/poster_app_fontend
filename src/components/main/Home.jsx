@@ -1,13 +1,16 @@
 import { NavLink, useNavigate } from "react-router-dom"
 import bannerImg from "../../assets/Programming.png"
+import { useEffect } from "react"
 function Home() {
   const navigate = useNavigate()
   const userStr = localStorage.getItem("user")
   const user = JSON.parse(userStr)
 
-  if (user?.email) {
-    navigate("/read")
-  }
+  useEffect(() => {
+    if (user?.email) {
+      navigate("/read")
+    }
+  }, [])
 
   return (
     <>
