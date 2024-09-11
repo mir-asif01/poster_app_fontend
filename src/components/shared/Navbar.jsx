@@ -37,7 +37,7 @@ function Navbar() {
                 </li>
                 <li>
                   <button
-                    className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer"
+                    className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer transition ease-linear hover:duration-300"
                     onClick={logoutButtonHandler}
                   >
                     Logout
