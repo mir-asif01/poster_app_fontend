@@ -60,12 +60,6 @@ export const routes = createBrowserRouter([
         element: <Followers />,
       },
       {
-        path: "friend-requests",
-      },
-      {
-        path: "followers",
-      },
-      {
         path: "/register",
         element: <Register></Register>,
       },
