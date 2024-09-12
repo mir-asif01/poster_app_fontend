@@ -19,9 +19,9 @@ function Profile() {
       <section className="flex flex-col md:flex-row justify-center items-center p-2 md:p-10 md:gap-10 w-full">
         <div className="my-10">
           <ul className="flex flex-col justify-center items-center gap-2">
-            <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
+            {/* <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
               <NavLink to={"/edit"}>Edit</NavLink>
-            </li>
+            </li> */}
             <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
               <NavLink to={"/all-posts"}>All-posts</NavLink>
             </li>

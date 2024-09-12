@@ -1,13 +1,19 @@
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
 
-export default function Edit(){
-    const { register, handleSubmit } = useForm();
+export default function Edit() {
+  const { register, handleSubmit } = useForm()
+
+  // parsing the logged in users information from local storage
+  const userStr = localStorage.getItem("user")
+  const user = JSON.parse(userStr)
+  console.log(user)
 
   const onSubmit = async (data) => {
-    console.log(data);
-  };
-    return <>
-        <section className="p-4 md:py-16">
+    console.log(data)
+  }
+  return (
+    <>
+      <section className="p-4 md:py-16">
         <h1 className="text-6xl mb-10 text-center">Edit Profile</h1>
         <div className="flex justify-center items-center">
           <form
@@ -190,4 +196,5 @@ export default function Edit(){
         </div>
       </section>
     </>
+  )
 }
