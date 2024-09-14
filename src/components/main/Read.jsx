@@ -2,13 +2,22 @@ import { NavLink } from "react-router-dom"
 import img from "../../assets/Login.png"
 import { FaRegBookmark, FaRegHeart } from "react-icons/fa"
 import PostCard from "../shared/PostCard"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 function Read() {
+  const [posts, setPosts] = useState([])
   const [activeTab, setActiveTab] = useState(null)
   const handleTabClick = (e) => {
     setActiveTab(e.target.name)
   }
+
+  const fetchPosts = async () => {
+    await axios.get("http://localhost:3000/posts").then((res) => {
+      setPosts(res.data.posts)
+    })
+  }
+  fetchPosts()
   return (
     <>
       <section className="md:py-10 md:px-48">
@@ -45,19 +54,9 @@ function Read() {
           </div>
         </div>
         <div className="col-span-7 p-5 grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-center">
-          {activeTab === "recommended" ? (
-            <>
-              <PostCard />
-              <PostCard />
-            </>
-          ) : (
-            <>
-              <PostCard />
-              <PostCard />
-              <PostCard />
-              <PostCard />
-            </>
-          )}
+          {posts.map((post) => (
+            <PostCard key={post?._id} post={post} />
+          ))}
         </div>
       </section>
     </>
