@@ -35,7 +35,7 @@ export const routes = createBrowserRouter([
       {
         path: "/read/:id",
         loader: ({ params }) =>
-          fetch(`https://localhost:3000/posts/${params.id}`),
+          fetch(`http://localhost:3000/posts/${params.id}`),
         element: <PostDetails />,
       },
       {
