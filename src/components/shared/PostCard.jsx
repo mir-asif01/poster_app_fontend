@@ -5,10 +5,12 @@ import { FaArrowRightLong, FaRegBookmark } from "react-icons/fa6"
 function PostCard({ post }) {
   const {
     _id,
+    content,
     postImage,
     creatorName,
     creatorProfileImage,
     title,
+    likes,
     createdAt,
     creatorCurrentPosition,
   } = post
@@ -41,10 +43,13 @@ function PostCard({ post }) {
         <div className="flex justify-between items-center mt-3">
           <div className="flex justify-between gap-3 items-center mt-2 text-xs">
             <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
-              7/7/2024
+              {new Date(createdAt).toLocaleDateString()}
             </p>
             <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
-              3 min read
+              {Math.round(content.length / 450)} min read
+            </p>
+            <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
+              {likes} Likes
             </p>
           </div>
           <div className="flex justify-between gap-6 items-center text-2xl">
