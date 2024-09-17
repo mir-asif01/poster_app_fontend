@@ -1,6 +1,3 @@
-import { NavLink } from "react-router-dom"
-import img from "../../assets/Login.png"
-import { FaRegBookmark, FaRegHeart } from "react-icons/fa"
 import PostCard from "../shared/PostCard"
 import { useEffect, useState } from "react"
 import axios from "axios"
@@ -8,16 +5,34 @@ import axios from "axios"
 function Read() {
   const [posts, setPosts] = useState([])
   const [activeTab, setActiveTab] = useState(null)
+  const [loading, setLoading] = useState(true)
+
   const handleTabClick = (e) => {
     setActiveTab(e.target.name)
   }
 
   const fetchPosts = async () => {
-    await axios.get("http://localhost:3000/posts").then((res) => {
-      setPosts(res.data.posts)
-    })
+    try {
+      await axios.get("http://localhost:3000/posts").then((res) => {
+        setPosts(res.data.posts)
+        setLoading(false)
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
-  fetchPosts()
+  useEffect(() => {
+    fetchPosts()
+  }, [])
+  if (loading) {
+    return (
+      <>
+        <div className="min-h-screen flex justify-center items-center">
+          <h1 className="text-3xl">Loading......</h1>
+        </div>
+      </>
+    )
+  }
   return (
     <>
       <section className="md:py-10 md:px-48">

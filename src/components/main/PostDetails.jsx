@@ -1,3 +1,4 @@
+import { useState } from "react"
 import img from "../../assets/Login.png"
 import { FaRegBookmark } from "react-icons/fa6"
 import { LuThumbsUp } from "react-icons/lu"
@@ -8,6 +9,7 @@ function PostDetails() {
   const post = res.post
   console.log(post)
   const { title, content, postImage } = post
+
   return (
     <>
       <section className="p-3 md:px-56">
