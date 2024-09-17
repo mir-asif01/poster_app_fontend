@@ -3,12 +3,30 @@ import img from "../../assets/Login.png"
 import { FaRegBookmark } from "react-icons/fa6"
 import { LuThumbsUp } from "react-icons/lu"
 import { useLoaderData } from "react-router-dom"
+import axios from "axios"
 
 function PostDetails() {
   const res = useLoaderData()
   const post = res.post
   console.log(post)
-  const { title, content, postImage, createdAt, likes } = post
+  const { _id, title, content, postImage, createdAt, likes } = post
+
+  const handleLikeButton = async () => {
+    try {
+      await axios
+        .post("http://localhost:3000/add-one-like", {
+          postId: _id,
+        })
+        .then((res) => {
+          if (res.success) {
+            alert("like added")
+          }
+        })
+        .catch((e) => console.log(e))
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -43,12 +61,12 @@ function PostDetails() {
               <div className="flex justify-between gap-6 items-center text-2xl">
                 <FaRegBookmark
                   className="cursor-pointer"
-                  onClick={() => alert("Added to bookmark")}
+                  onClick={() => alert("Added to favorites")}
                 />{" "}
                 {/* add to bookmark button */}
                 <LuThumbsUp
                   className="cursor-pointer text-3xl"
-                  onClick={() => alert("like added")}
+                  onClick={handleLikeButton}
                 />
               </div>
             </div>
