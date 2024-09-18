@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { Context } from "../../context/Context"
 import { useContext } from "react"
 import axios from "axios"
+import toast, { Toaster } from "react-hot-toast"
 
 function Write() {
   const { register, handleSubmit } = useForm()
@@ -22,7 +23,9 @@ function Write() {
     axios
       .post("http://localhost:3000/create-post", postData)
       .then((res) => {
-        console.log(res)
+        if (res.data.success) {
+          toast.success("Post created successfully")
+        }
       })
       .catch((error) => {
         console.log(error)
@@ -33,6 +36,7 @@ function Write() {
   return (
     <>
       <section className="p-2 md:px-10 py-3 md:py-32 md:flex justify-center items-center">
+        <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="p-2 md:p-10 border border-slate-400 rounded-md md:w-2/4 "

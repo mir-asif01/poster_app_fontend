@@ -4,12 +4,14 @@ import { FaRegBookmark } from "react-icons/fa6"
 import { LuThumbsUp } from "react-icons/lu"
 import { useLoaderData } from "react-router-dom"
 import axios from "axios"
+import toast, { Toaster } from "react-hot-toast"
 
 function PostDetails() {
   const res = useLoaderData()
   const post = res.post
   console.log(post)
-  const { _id, title, content, postImage, createdAt, likes } = post
+  const { _id, title, content, postImage, createdAt } = post
+  let { likes } = post
 
   const handleLikeButton = async () => {
     try {
@@ -18,8 +20,8 @@ function PostDetails() {
           postId: _id,
         })
         .then((res) => {
-          if (res.success) {
-            alert("like added")
+          if (res.data.success) {
+            toast.success("like added")
           }
         })
         .catch((e) => console.log(e))
@@ -31,6 +33,7 @@ function PostDetails() {
   return (
     <>
       <section className="p-3 md:px-56">
+        <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
         <div className="border bg-card drop-shadow-sm shadow-indigo-200 border-gray-300 rounded-md">
           <div className="border-b border-gray-200">
             <img src={postImage} className="w-full h-80 p-2" alt="" />
