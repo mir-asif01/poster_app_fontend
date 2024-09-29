@@ -5,7 +5,7 @@ import axios from "axios"
 import toast, { Toaster } from "react-hot-toast"
 
 function Write() {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, reset } = useForm()
   const userStr = localStorage.getItem("user")
   const loggedInUser = JSON.parse(userStr)
   console.log(loggedInUser)
@@ -29,7 +29,7 @@ function Write() {
       .then((res) => {
         if (res.data.success) {
           toast.success("Post created successfully")
-          console.log(res.data.post)
+          reset()
         }
       })
       .catch((error) => {
