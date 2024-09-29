@@ -1,6 +1,4 @@
 import { useForm } from "react-hook-form"
-import { Context } from "../../context/Context"
-import { useContext } from "react"
 import axios from "axios"
 import toast, { Toaster } from "react-hot-toast"
 

@@ -3,13 +3,35 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 
 function Read() {
+  // posts stats to show in the read section
   const [posts, setPosts] = useState([])
+  const [searchedPosts, setSearchedPosts] = useState([])
+
   const [activeTab, setActiveTab] = useState(null)
   const [loading, setLoading] = useState(true)
   const [searchkeyWord, setSearchkeyword] = useState("")
 
   const handleTabClick = (e) => {
     setActiveTab(e.target.name)
+  }
+
+  // onlick of search button the handleSearch function will be called.....
+  const handleSearch = async () => {
+    try {
+      // fetch posts with keyword
+      // update the posts state - > setPosts() to show searched results
+      await axios
+        .get(
+          `http://localhost:3000/search-post?search_keyword=${searchkeyWord}`
+        )
+        .then((res) => {
+          console.log(res)
+          setPosts(res.data.posts)
+          // console.log(searchedPosts)
+        })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const fetchPosts = async () => {
@@ -25,6 +47,7 @@ function Read() {
   useEffect(() => {
     fetchPosts()
   }, [])
+
   if (loading) {
     return (
       <>
@@ -65,7 +88,10 @@ function Read() {
               placeholder="search by topics"
               className="px-3 py-2 w-full outline-none text-black rounded-l-md border border-"
             />
-            <button className="px-5 py-2 font-semibold bg-indigo-500 text-white rounded-r-md">
+            <button
+              onClick={handleSearch}
+              className="px-5 py-2 font-semibold bg-indigo-500 text-white rounded-r-md"
+            >
               Search
             </button>
           </div>
