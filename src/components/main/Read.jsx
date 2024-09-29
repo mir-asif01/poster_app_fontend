@@ -6,6 +6,7 @@ function Read() {
   const [posts, setPosts] = useState([])
   const [activeTab, setActiveTab] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [searchkeyWord, setSearchkeyword] = useState("")
 
   const handleTabClick = (e) => {
     setActiveTab(e.target.name)
@@ -59,6 +60,7 @@ function Read() {
           </div>
           <div className="flex p-3">
             <input
+              onChange={(e) => setSearchkeyword(e.target.value)}
               type="text"
               placeholder="search by topics"
               className="px-3 py-2 w-full outline-none text-black rounded-l-md border border-"

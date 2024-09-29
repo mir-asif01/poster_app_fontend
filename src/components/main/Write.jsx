@@ -13,9 +13,13 @@ function Write() {
     const postData = new FormData()
     postData.append("title", data.title)
     postData.append("postImage", data.postImage[0])
-    postData.append("tags", data.tags)
+    postData.append(
+      "tags",
+      data.tags.split(",").map((v) => v.trim())
+    )
     postData.append("summary", data.summary)
     postData.append("content", data.content)
+    postData.append("creatorId", loggedInUser._id)
     postData.append("creatorName", loggedInUser.fullName)
     postData.append("creatorProfileImage", loggedInUser.profileImage)
     postData.append("creatorCurrentPosition", loggedInUser.currentPostion)
@@ -25,6 +29,7 @@ function Write() {
       .then((res) => {
         if (res.data.success) {
           toast.success("Post created successfully")
+          console.log(res.data.post)
         }
       })
       .catch((error) => {
