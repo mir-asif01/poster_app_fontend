@@ -17,7 +17,7 @@ function Register() {
     userData.append("fullName", data.fullName)
     userData.append("profileImage", data.profileImage[0])
     userData.append("coverImage", data.coverImage[0])
-    userData.append("currentPostion", data.currentPostion)
+    userData.append("currentPosition", data.currentPosition)
     userData.append("technicalSkills", data.technicalSkills)
     userData.append("linkedInProfileLink", data.linkedInProfileLink)
     userData.append("githubProfileLink", data.githubProfileLink)
@@ -39,8 +39,8 @@ function Register() {
       .catch((error) => {
         console.log(error)
       })
-    console.log(userData.get("profileImage"))
-    console.log(data)
+
+    console.log(userData.get("currentPosition"))
   }
 
   return (
@@ -174,17 +174,17 @@ function Register() {
                   />
                 </div>
                 <div className="mt-3">
-                  <label className="" htmlFor="password">
+                  <label className="" htmlFor="currentPosition">
                     Current Position
                   </label>
                   <br />
                   <input
-                    {...register("currentPostion", {
+                    {...register("currentPosition", {
                       required: true,
                     })}
                     className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
                     type="text"
-                    name="currentPostion"
+                    name="currentPosition"
                     placeholder="eg- Software Engineer"
                   />
                 </div>

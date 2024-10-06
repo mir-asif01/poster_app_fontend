@@ -5,8 +5,6 @@ import axios from "axios"
 function Read() {
   // posts stats to show in the read section
   const [posts, setPosts] = useState([])
-  const [searchedPosts, setSearchedPosts] = useState([])
-
   const [activeTab, setActiveTab] = useState(null)
   const [loading, setLoading] = useState(true)
   const [searchkeyWord, setSearchkeyword] = useState("")

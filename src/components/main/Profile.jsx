@@ -5,7 +5,7 @@ function Profile() {
   const user = JSON.parse(userStr)
   const {
     fullName,
-    currentPostion,
+    currentPosition,
     about,
     profileImage,
     facebookProfileLink,
@@ -34,33 +34,33 @@ function Profile() {
           </ul>
         </div>
         <div className="md:p-6 border border-indigo-500 rounded-lg  md:w-1/3">
-          <div className="flex flex-col items-center ">
+          <div className="flex flex-col items-center relative">
             <img
               src={profileImage ? profileImage : img}
               className="w-52 h-52 rounded-full border border-indigo-200"
               alt=""
             />
             <div className="text-center">
-              <h1 className="text-xl font-semibold mt-4 mb-0">{fullName}</h1>
-              <h1 className="font-semibold text-lg text-gray-500">
-                {currentPostion}
+              <h1 className="text-xl font-semibold mt-4 mb-2">{fullName}</h1>
+              <h1 className="font-semibold text-lg text-gray-500 mb-5">
+                {currentPosition}
               </h1>
               <ul className="flex flex-col md:flex-row justify-center items-center gap-4 mb-5">
-                <li className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer">
+                <li className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer transition ease-linear hover:duration-300">
                   {linkedInProfileLink === "N/A" ? (
                     "N/A"
                   ) : (
                     <a href={linkedInProfileLink}>LinkedIn</a>
                   )}
                 </li>
-                <li className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer">
+                <li className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer transition ease-linear hover:duration-300">
                   {githubProfileLink === "N/A" ? (
                     "N/A"
                   ) : (
                     <a href={githubProfileLink}>Github</a>
                   )}
                 </li>
-                <li className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer">
+                <li className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer transition ease-linear hover:duration-300">
                   {facebookProfileLink === "N/A" ? (
                     "N/A"
                   ) : (

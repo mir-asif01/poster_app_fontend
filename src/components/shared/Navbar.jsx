@@ -6,7 +6,6 @@ function Navbar() {
   const navigate = useNavigate()
   const userStr = localStorage.getItem("user")
   const user = JSON.parse(userStr)
-  console.log(user)
 
   const logoutButtonHandler = () => {
     localStorage.removeItem("user")
