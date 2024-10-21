@@ -1,12 +1,18 @@
+import { useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import toast, { Toaster } from "react-hot-toast"
+import JoditEditor from "jodit-react"
 
 function Write() {
   const { register, handleSubmit, reset } = useForm()
   const userStr = localStorage.getItem("user")
   const loggedInUser = JSON.parse(userStr)
   console.log(loggedInUser)
+
+  const contentRef = useRef(null)
+  const [content, setContent] = useState()
+
   const onSubmit = async (data) => {
     const postData = new FormData()
     postData.append("title", data.title)
@@ -16,11 +22,11 @@ function Write() {
       data.tags.split(",").map((v) => v.trim())
     )
     postData.append("summary", data.summary)
-    postData.append("content", data.content)
+    postData.append("content", content)
     postData.append("creatorId", loggedInUser._id)
     postData.append("creatorName", loggedInUser.fullName)
     postData.append("creatorProfileImage", loggedInUser.profileImage)
-    postData.append("creatorCurrentPosition", loggedInUser.currentPostion)
+    postData.append("creatorCurrentPosition", loggedInUser.currentPosition)
 
     axios
       .post("http://localhost:3000/create-post", postData)
@@ -106,13 +112,17 @@ function Write() {
               Content
             </label>
             <br />
-            <textarea
+            {/* <textarea
               {...register("content")}
               className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
               type=""
               name="content"
               placeholder="Content of your post"
               required
+            /> */}
+            <JoditEditor
+              ref={contentRef}
+              onChange={(newContent) => setContent(newContent)}
             />
           </div>
           <div className="flex justify-center items-center mt-5">

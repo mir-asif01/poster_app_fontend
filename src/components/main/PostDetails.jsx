@@ -73,9 +73,7 @@ function PostDetails() {
                 />
               </div>
             </div>
-            <div className="my-10 text-xl">
-              <p>{content}</p>
-            </div>
+            <div className="my-10 text-xl">{content}</div>
           </div>
         </div>
       </section>
