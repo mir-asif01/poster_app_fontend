@@ -73,7 +73,11 @@ function PostDetails() {
                 />
               </div>
             </div>
-            <div className="my-10 text-xl">{content}</div>
+
+            <div
+              className="my-10 text-xl"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
           </div>
         </div>
       </section>
