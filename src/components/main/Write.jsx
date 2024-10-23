@@ -8,7 +8,6 @@ function Write() {
   const { register, handleSubmit, reset } = useForm()
   const userStr = localStorage.getItem("user")
   const loggedInUser = JSON.parse(userStr)
-  console.log(loggedInUser)
 
   const contentRef = useRef(null)
   const [content, setContent] = useState()
@@ -34,17 +33,16 @@ function Write() {
         if (res.data.success) {
           toast.success("Post created successfully")
           reset()
+          setContent("")
         }
       })
       .catch((error) => {
         console.log(error)
       })
-
-    console.log(postData)
   }
   return (
     <>
-      <section className="p-2 md:px-10 py-3 md:py-32 md:flex justify-center items-center">
+      <section className="p-2 md:px-10 py-3 md:py-32 md:flex justify-center items-center w-full md:w-full">
         <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -122,6 +120,7 @@ function Write() {
             /> */}
             <JoditEditor
               ref={contentRef}
+              value={content}
               onChange={(newContent) => setContent(newContent)}
             />
           </div>

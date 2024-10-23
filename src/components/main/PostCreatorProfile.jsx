@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom"
-import img from "../../assets/Login.png"
-function Profile() {
-  const userStr = localStorage.getItem("user")
-  const user = JSON.parse(userStr)
+import { useLoaderData } from "react-router-dom"
+
+export default function PostCreatorProfile() {
+  const res = useLoaderData()
+  const user = res.user
   const {
     fullName,
     currentPosition,
@@ -12,26 +12,9 @@ function Profile() {
     githubProfileLink,
     linkedInProfileLink,
   } = user
-
   return (
     <>
       <section className="flex flex-col md:flex-row justify-center items-center p-2 md:p-10 md:gap-10 w-full">
-        <div className="my-10">
-          <ul className="flex flex-col justify-center items-center gap-2">
-            {/* <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
-              <NavLink to={"/edit"}>Edit</NavLink>
-            </li> */}
-            <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
-              <NavLink to={"/all-posts"}>All-posts</NavLink>
-            </li>
-            <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
-              <NavLink to={"/friends"}>Friends</NavLink>
-            </li>
-            <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
-              <NavLink to={"/followers"}>Followers</NavLink>
-            </li>
-          </ul>
-        </div>
         <div className="md:p-6 border border-indigo-500 rounded-lg  md:w-1/3">
           <div className="flex flex-col items-center relative">
             <img
@@ -83,4 +66,3 @@ function Profile() {
     </>
   )
 }
-export default Profile

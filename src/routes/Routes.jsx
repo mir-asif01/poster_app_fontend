@@ -14,6 +14,7 @@ import AllPosts from "../components/profile/AllPosts"
 import Friends from "../components/profile/Friends"
 import Followers from "../components/profile/Followers"
 import axios from "axios"
+import PostCreatorProfile from "../components/main/PostCreatorProfile"
 
 export const routes = createBrowserRouter([
   {
@@ -34,8 +35,8 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/read/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/posts/${params.id}`),
+        loader: async ({ params }) =>
+          await fetch(`http://localhost:3000/posts/${params.id}`),
         element: <PostDetails />,
       },
       {
@@ -45,6 +46,12 @@ export const routes = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/users/:id",
+        loader: async ({ params }) =>
+          await fetch(`http://localhost:3000/users/${params.id}`),
+        element: <PostCreatorProfile></PostCreatorProfile>,
       },
       {
         path: "edit",

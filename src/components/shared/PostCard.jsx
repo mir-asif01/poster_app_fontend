@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom"
-import img from "../../assets/Login.png"
 import { FaArrowRightLong, FaRegBookmark } from "react-icons/fa6"
 
 function PostCard({ post }) {
@@ -8,6 +7,7 @@ function PostCard({ post }) {
     content,
     postImage,
     creatorName,
+    creatorId,
     creatorProfileImage,
     title,
     likes,
@@ -27,7 +27,9 @@ function PostCard({ post }) {
               className="w-5 h-5 rounded-full"
               alt=""
             />
-            <p className="font-semibold">{creatorName}</p>
+            <NavLink to={`/users/${creatorId}`}>
+              <p className="font-semibold hover:underline">{creatorName}</p>
+            </NavLink>
           </div>
           <p className="font-semibold">
             {creatorCurrentPosition === "undefined"
