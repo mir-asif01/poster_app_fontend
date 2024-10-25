@@ -50,7 +50,9 @@ function Read() {
     return (
       <>
         <div className="min-h-screen flex justify-center items-center">
-          <h1 className="text-3xl">Loading......</h1>
+          <div className="animate-pulse">
+            <div className="w-24 h-24 border-8 border-t-indigo-500  animate-spin rounded-full"></div>
+          </div>
         </div>
       </>
     )

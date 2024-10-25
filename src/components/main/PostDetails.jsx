@@ -1,5 +1,3 @@
-import { useState } from "react"
-import img from "../../assets/Login.png"
 import { FaRegBookmark } from "react-icons/fa6"
 import { LuThumbsUp } from "react-icons/lu"
 import { useLoaderData } from "react-router-dom"
@@ -9,19 +7,21 @@ import toast, { Toaster } from "react-hot-toast"
 function PostDetails() {
   const res = useLoaderData()
   const post = res.post
-  console.log(post)
-  const { _id, title, content, postImage, createdAt } = post
-  let { likes } = post
+  const { _id, creatorId, title, content, postImage, createdAt, likesCount } =
+    post
 
   const handleLikeButton = async () => {
     try {
       await axios
         .post("http://localhost:3000/add-one-like", {
+          userId: creatorId,
           postId: _id,
         })
         .then((res) => {
           if (res.data.success) {
-            toast.success("like added")
+            toast.success(res.data.message)
+          } else if (!res.data.success) {
+            toast.success(res.data.message)
           }
         })
         .catch((e) => console.log(e))
@@ -55,10 +55,11 @@ function PostDetails() {
                   {new Date(createdAt).toLocaleDateString()}
                 </p>
                 <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
-                  {Math.round(content.length / 450)} min read
+                  {content.length > 450 ? Math.round(content.length / 450) : 1}{" "}
+                  min read
                 </p>
                 <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
-                  {likes} Likes
+                  {likesCount} {likesCount === 1 ? "Like" : "Likes"}
                 </p>
               </div>
               <div className="flex justify-between gap-6 items-center text-2xl">

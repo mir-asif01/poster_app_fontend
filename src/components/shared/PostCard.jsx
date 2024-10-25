@@ -10,7 +10,7 @@ function PostCard({ post }) {
     creatorId,
     creatorProfileImage,
     title,
-    likes,
+    likesCount,
     createdAt,
     creatorCurrentPosition,
   } = post
@@ -48,10 +48,11 @@ function PostCard({ post }) {
               {new Date(createdAt).toLocaleDateString()}
             </p>
             <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
-              {Math.round(content.length / 450)} min read
+              {content.length > 450 ? Math.round(content.length / 450) : 1} min
+              read
             </p>
             <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
-              {likes} Likes
+              {likesCount} {likesCount === 1 ? " Like" : "Likes"}
             </p>
           </div>
           <div className="flex justify-between gap-6 items-center text-2xl">
