@@ -3,17 +3,21 @@ import { useForm } from "react-hook-form"
 import toast, { Toaster } from "react-hot-toast"
 import { NavLink, useNavigate } from "react-router-dom"
 import { savaUserInfoToLocalStorage } from "../../utils/localStorage"
+import { useState } from "react"
 
 function Login() {
   const { register, handleSubmit, reset } = useForm()
+  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
   // add validations for empty input fields
   const onSubmit = async (data) => {
+    setIsLoading(true)
     await axios
       .post("http://localhost:3000/login", data)
       .then((res) => {
         if (res?.data.success) {
           toast.success(res?.data?.message)
+          setIsLoading(false)
           reset()
           localStorage.setItem("user", JSON.stringify(res?.data?.user))
           setTimeout(() => {
@@ -77,7 +81,7 @@ function Login() {
               <input
                 className="bg-indigo-500 cursor-pointer font-semibold rounded-3xl text-white px-10 py-2 shadow-indigo-500 hover:shadow-md"
                 type="submit"
-                value={"Login"}
+                value={isLoading ? "Loading" : "Login"}
               />
             </div>
           </form>

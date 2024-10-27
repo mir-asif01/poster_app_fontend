@@ -1,8 +1,12 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import img from "../../assets/Login.png"
 function Profile() {
+  const navigate = useNavigate()
   const userStr = localStorage.getItem("user")
   const user = JSON.parse(userStr)
+  if (user === null) {
+    navigate("/login")
+  }
   const {
     fullName,
     currentPosition,

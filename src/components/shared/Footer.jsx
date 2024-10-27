@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa"
 function Footer() {
   return (
     <>
@@ -30,7 +30,8 @@ function Footer() {
             </div>
             <p className="text-xl mt-2">+8801315405814(whatsapp)</p>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-center items-start">
+            <h1 className="text-4xl mb-6 text-left">Send Feedback</h1>
             <div className="flex">
               <input
                 type="text"
@@ -45,6 +46,6 @@ function Footer() {
         </div>
       </footer>
     </>
-  );
+  )
 }
-export default Footer;
+export default Footer

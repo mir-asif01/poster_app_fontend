@@ -5,6 +5,8 @@ import axios from "axios"
 import toast, { Toaster } from "react-hot-toast"
 
 function PostDetails() {
+  const userStr = localStorage.getItem("user")
+  const loggedInUser = JSON.parse(userStr)
   const res = useLoaderData()
   const post = res.post
   const { _id, creatorId, title, content, postImage, createdAt, likesCount } =
@@ -14,14 +16,14 @@ function PostDetails() {
     try {
       await axios
         .post("http://localhost:3000/add-one-like", {
-          userId: creatorId,
+          userId: loggedInUser._id,
           postId: _id,
         })
         .then((res) => {
           if (res.data.success) {
             toast.success(res.data.message)
           } else if (!res.data.success) {
-            toast.success(res.data.message)
+            toast.error(res.data.message)
           }
         })
         .catch((e) => console.log(e))
