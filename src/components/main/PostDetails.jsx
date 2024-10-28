@@ -5,7 +5,6 @@ import { RxCross1 } from "react-icons/rx"
 import { useLoaderData } from "react-router-dom"
 import axios from "axios"
 import toast, { Toaster } from "react-hot-toast"
-import img from "../../assets/Login.png"
 import { useState } from "react"
 
 function PostDetails() {
@@ -75,8 +74,8 @@ function PostDetails() {
       const newComment = {
         comment: comment,
         postId: _id,
-        commentorName: creatorName,
-        commentorProfileImage: creatorProfileImage,
+        commentorName: loggedInUser.fullName,
+        commentorProfileImage: loggedInUser.profileImage,
       }
 
       await axios
@@ -84,6 +83,7 @@ function PostDetails() {
         .then((res) => {
           if (res.data.success) {
             toast.success(res.data.message)
+            setComment("")
           }
           if (!res.data.success) {
             toast.error(res.data.message)
@@ -181,37 +181,30 @@ function PostDetails() {
             Add Comment
           </button>
         </div>
-        <div className="p-5 bg-white rounded-lg my-5">
-          <div className="flex justify-between items-center p-2 mb-2">
-            <div>
-              <img src={img} className="h-10 w-10" alt="" />
+        {/* // comments  */}
+        {commentArray.map((comment) => (
+          <div className="p-5 bg-white rounded-lg my-5">
+            <div className="flex justify-between items-center p-2 mb-2 gap-4">
+              <div>
+                <img
+                  src={comment.commentorProfileImage}
+                  className="h-10 w-10 rounded-full"
+                  alt=""
+                />
+              </div>
+              <div>
+                <h1 className="text-xl font-semibold">
+                  {comment.commentorName}
+                </h1>
+                <h1 className="">
+                  {new Date(comment.createdAt).toLocaleDateString()}
+                </h1>
+              </div>
             </div>
-            <div>
-              <h1 className="text-xl font-semibold">Commentor Name</h1>
-              <h1 className="">10/10/2024</h1>
-            </div>
+            <hr />
+            <p className="mt-5">{comment.comment}</p>
           </div>
-          <hr />
-          <p className="mt-5">
-            {commentArray ? commentArray.length : "no comment found"}
-          </p>
-        </div>
-        <div className="p-5 bg-white rounded-lg my-5">
-          <div className="flex justify-between items-center p-2 mb-2">
-            <div>
-              <img src={img} className="h-10 w-10" alt="" />
-            </div>
-            <div>
-              <h1 className="text-xl font-semibold">Commentor Name</h1>
-              <h1 className="">10/10/2024</h1>
-            </div>
-          </div>
-          <hr />
-          <p className="mt-5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
-            laudantium.
-          </p>
-        </div>
+        ))}
       </div>
     </section>
   )
