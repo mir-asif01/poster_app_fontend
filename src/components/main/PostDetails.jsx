@@ -1,10 +1,15 @@
 import { FaRegBookmark } from "react-icons/fa6"
 import { LuThumbsUp } from "react-icons/lu"
+import { FaComment } from "react-icons/fa"
+import { RxCross1 } from "react-icons/rx"
 import { useLoaderData } from "react-router-dom"
 import axios from "axios"
 import toast, { Toaster } from "react-hot-toast"
+import img from "../../assets/Login.png"
+import { useState } from "react"
 
 function PostDetails() {
+  const [commentDrawerOpen, setCommentDrawerOpen] = useState(false)
   const userStr = localStorage.getItem("user")
   const loggedInUser = JSON.parse(userStr)
   const res = useLoaderData()
@@ -32,12 +37,24 @@ function PostDetails() {
     }
   }
 
+  const handleCommentsPanelOpen = async () => {
+    setCommentDrawerOpen(true)
+    try {
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const closeCommentDrawer = async () => {
+    setCommentDrawerOpen(false)
+  }
+
   return (
-    <>
-      <section className="p-3 md:px-56">
+    <section className="relative">
+      <div className="p-3 md:px-56">
         <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
         <div className="border bg-card drop-shadow-sm shadow-indigo-200 border-gray-300 rounded-md">
-          <div className="border-b border-gray-200">
+          <div className="border-b border-gray-200 relative">
             <img src={postImage} className="w-full h-80 p-2" alt="" />
           </div>
           <div className="px-4 py-3">
@@ -74,17 +91,146 @@ function PostDetails() {
                   className="cursor-pointer text-3xl"
                   onClick={handleLikeButton}
                 />
+                <FaComment
+                  className="cursor-pointer text-3xl"
+                  onClick={handleCommentsPanelOpen}
+                />
               </div>
             </div>
-
             <div
               className="my-10 text-xl"
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </div>
         </div>
-      </section>
-    </>
+      </div>
+      {/* drawer */}
+      <div
+        className={`${
+          commentDrawerOpen ? "absolute" : "hidden"
+        } right-0 top-0 bg-slate-200 p-5 h-full overflow-x-hidden overflow-y-scroll`}
+      >
+        <div className="flex justify-between items-center mb-5">
+          <h1 className="text-2xl">Comments</h1>
+          <RxCross1
+            className="text-2xl cursor-pointer"
+            onClick={closeCommentDrawer}
+          />
+        </div>
+        <div className="p-5 bg-white rounded-lg my-10">
+          <div className="flex justify-between items-center p-2 mb-2">
+            <div>
+              <img src={img} className="h-10 w-10" alt="" />
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold">Commentor Name</h1>
+              <h1 className="">10/10/2024</h1>
+            </div>
+          </div>
+          <hr />
+          <p className="mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+            laudantium.
+          </p>
+        </div>
+        <div className="p-5 bg-white rounded-lg my-10">
+          <div className="flex justify-between items-center p-2 mb-2">
+            <div>
+              <img src={img} className="h-10 w-10" alt="" />
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold">Commentor Name</h1>
+              <h1 className="">10/10/2024</h1>
+            </div>
+          </div>
+          <hr />
+          <p className="mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+            laudantium.
+          </p>
+        </div>
+        <div className="p-5 bg-white rounded-lg my-10">
+          <div className="flex justify-between items-center p-2 mb-2">
+            <div>
+              <img src={img} className="h-10 w-10" alt="" />
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold">Commentor Name</h1>
+              <h1 className="">10/10/2024</h1>
+            </div>
+          </div>
+          <hr />
+          <p className="mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+            laudantium.
+          </p>
+        </div>
+        <div className="p-5 bg-white rounded-lg my-10">
+          <div className="flex justify-between items-center p-2 mb-2">
+            <div>
+              <img src={img} className="h-10 w-10" alt="" />
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold">Commentor Name</h1>
+              <h1 className="">10/10/2024</h1>
+            </div>
+          </div>
+          <hr />
+          <p className="mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+            laudantium.
+          </p>
+        </div>
+        <div className="p-5 bg-white rounded-lg my-10">
+          <div className="flex justify-between items-center p-2 mb-2">
+            <div>
+              <img src={img} className="h-10 w-10" alt="" />
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold">Commentor Name</h1>
+              <h1 className="">10/10/2024</h1>
+            </div>
+          </div>
+          <hr />
+          <p className="mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+            laudantium.
+          </p>
+        </div>
+        <div className="p-5 bg-white rounded-lg my-10">
+          <div className="flex justify-between items-center p-2 mb-2">
+            <div>
+              <img src={img} className="h-10 w-10" alt="" />
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold">Commentor Name</h1>
+              <h1 className="">10/10/2024</h1>
+            </div>
+          </div>
+          <hr />
+          <p className="mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+            laudantium.
+          </p>
+        </div>
+        <div className="p-5 bg-white rounded-lg my-10">
+          <div className="flex justify-between items-center p-2 mb-2">
+            <div>
+              <img src={img} className="h-10 w-10" alt="" />
+            </div>
+            <div>
+              <h1 className="text-xl font-semibold">Commentor Name</h1>
+              <h1 className="">10/10/2024</h1>
+            </div>
+          </div>
+          <hr />
+          <p className="mt-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+            laudantium.
+          </p>
+        </div>
+      </div>
+    </section>
   )
 }
 export default PostDetails
