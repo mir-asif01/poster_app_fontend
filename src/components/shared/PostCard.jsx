@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { FaArrowRightLong, FaRegBookmark } from "react-icons/fa6"
+import { FaArrowRightLong } from "react-icons/fa6"
 
 function PostCard({ post }) {
   const {
@@ -56,7 +56,6 @@ function PostCard({ post }) {
             </p>
           </div>
           <div className="flex justify-between gap-6 items-center text-2xl">
-            <FaRegBookmark className="cursor-pointer" />
             <NavLink to={`/read/${_id}`}>
               <p className="flex items-center justify-center gap-3">
                 <span className="text-lg">Read</span>

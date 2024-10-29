@@ -12,13 +12,14 @@ export default function PostCreatorProfile() {
     githubProfileLink,
     linkedInProfileLink,
   } = user
+
   return (
     <>
       <section className="flex flex-col md:flex-row justify-center items-center p-2 md:p-10 md:gap-10 w-full">
         <div className="md:p-6 border border-indigo-500 rounded-lg  md:w-1/3">
           <div className="flex flex-col items-center relative">
             <img
-              src={profileImage ? profileImage : img}
+              src={profileImage}
               className="w-52 h-52 rounded-full border border-indigo-200"
               alt=""
             />
@@ -27,6 +28,7 @@ export default function PostCreatorProfile() {
               <h1 className="font-semibold text-lg text-gray-500 mb-5">
                 {currentPosition}
               </h1>
+              <p></p>
               <ul className="flex flex-col md:flex-row justify-center items-center gap-4 mb-5">
                 <li className="px-6 py-1 border border-gray-300 rounded-full hover:border hover:border-white hover:px-6 hover:py-1 hover:rounded-full hover:bg-indigo-500 hover:text-white cursor-pointer transition ease-linear hover:duration-300">
                   {linkedInProfileLink === "N/A" ? (
@@ -51,14 +53,6 @@ export default function PostCreatorProfile() {
                 </li>
               </ul>
               <p className=" text-justify">{about}</p>
-              <p className="flex justify-center items-center gap-5 mt-3">
-                <span className="bg-slate-900 text-white px-3 py-1 rounded-full text-xs">
-                  Number of posts {10}
-                </span>
-                <span className="bg-slate-900 text-white px-3 py-1 rounded-full text-xs">
-                  Number of likes {111}
-                </span>
-              </p>
             </div>
           </div>
         </div>

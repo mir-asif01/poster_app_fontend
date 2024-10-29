@@ -129,11 +129,6 @@ function PostDetails() {
                 </p>
               </div>
               <div className="flex justify-between gap-6 items-center text-2xl">
-                <FaRegBookmark
-                  className="cursor-pointer text-2xl"
-                  onClick={() => alert("Added to favorites")}
-                />{" "}
-                {/* add to bookmark button */}
                 <LuThumbsUp
                   className="cursor-pointer text-2xl"
                   onClick={handleLikeButton}
@@ -183,7 +178,7 @@ function PostDetails() {
         </div>
         {/* // comments  */}
         {commentArray.map((comment) => (
-          <div className="p-5 bg-white rounded-lg my-5">
+          <div key={comment?._id} className="p-5 bg-white rounded-lg my-5">
             <div className="flex justify-between items-center p-2 mb-2 gap-4">
               <div>
                 <img
