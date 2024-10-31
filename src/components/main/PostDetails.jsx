@@ -76,7 +76,10 @@ function PostDetails() {
         commentorName: loggedInUser.fullName,
         commentorProfileImage: loggedInUser.profileImage,
       }
-
+      setCommentsArray([
+        ...commentArray,
+        { ...newComment, createdAt: Date.now() },
+      ])
       await axios
         .post("http://localhost:3000/add-comment", newComment)
         .then((res) => {

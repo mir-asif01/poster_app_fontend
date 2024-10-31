@@ -10,7 +10,6 @@ function Login() {
   const navigate = useNavigate()
   // add validations for empty input fields
   const onSubmit = async (data) => {
-    setIsLoading(true)
     await axios
       .post("http://localhost:3000/login", data)
       .then((res) => {

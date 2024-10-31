@@ -42,7 +42,7 @@ function Write() {
   }
   return (
     <>
-      <section className="p-2 md:px-10 py-3 md:py-32 md:flex justify-center items-center w-full md:w-full">
+      <section className="flex p-2 md:p-10 md:flex justify-center items-center w-full md:w-2/3 md:mx-auto">
         <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
         <form
           onSubmit={handleSubmit(onSubmit)}
