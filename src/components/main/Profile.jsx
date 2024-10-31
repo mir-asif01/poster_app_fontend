@@ -26,13 +26,10 @@ function Profile() {
               <NavLink to={"/edit"}>Edit</NavLink>
             </li> */}
             <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
-              <NavLink to={"/all-posts"}>All-posts</NavLink>
+              <NavLink to={"/all-posts"}>All Posts</NavLink>
             </li>
             <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
-              <NavLink to={"/friends"}>Friends</NavLink>
-            </li>
-            <li className="bg-indigo-500 px-6 py-1 rounded-2xl text-white font-medium">
-              <NavLink to={"/followers"}>Followers</NavLink>
+              <NavLink to={"/manage-posts"}>Manage Posts</NavLink>
             </li>
           </ul>
         </div>

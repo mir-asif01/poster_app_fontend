@@ -9,12 +9,11 @@ import Write from "../components/main/Write"
 import Profile from "../components/main/Profile"
 import PostDetails from "../components/main/PostDetails"
 import ErrorPage from "../components/shared/ErrorPage"
-import Edit from "../components/profile/Edit"
 import AllPosts from "../components/profile/AllPosts"
-import Friends from "../components/profile/Friends"
-import Followers from "../components/profile/Followers"
-import axios from "axios"
 import PostCreatorProfile from "../components/main/PostCreatorProfile"
+import axios from "axios"
+import ManagePosts from "../components/profile/ManagePosts"
+import EditPost from "../components/profile/EditPost"
 
 export const routes = createBrowserRouter([
   {
@@ -24,6 +23,14 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
       {
         path: "/about",
@@ -36,7 +43,7 @@ export const routes = createBrowserRouter([
       {
         path: "/read/:id",
         loader: async ({ params }) =>
-          await fetch(`http://localhost:3000/posts/${params.id}`),
+          await axios.get(`http://localhost:3000/posts/${params.id}`),
         element: <PostDetails />,
       },
       {
@@ -54,28 +61,18 @@ export const routes = createBrowserRouter([
         element: <PostCreatorProfile></PostCreatorProfile>,
       },
       {
-        path: "edit",
-        element: <Edit />,
+        path: "manage-posts",
+        element: <ManagePosts />,
       },
       {
         path: "all-posts",
         element: <AllPosts />,
       },
       {
-        path: "friends",
-        element: <Friends />,
-      },
-      {
-        path: "followers",
-        element: <Followers />,
-      },
-      {
-        path: "/register",
-        element: <Register></Register>,
-      },
-      {
-        path: "/login",
-        element: <Login></Login>,
+        path: "edit-post/:id",
+        loader: async ({ params }) =>
+          await axios.get(`http://localhost:3000/posts/${params.id}`),
+        element: <EditPost />,
       },
       {
         path: "*",

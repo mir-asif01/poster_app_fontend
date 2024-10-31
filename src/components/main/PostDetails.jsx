@@ -14,7 +14,7 @@ function PostDetails() {
   const userStr = localStorage.getItem("user")
   const loggedInUser = JSON.parse(userStr)
   const res = useLoaderData()
-  const post = res.post
+  const post = res.data.post
   const {
     _id,
     creatorId,
@@ -26,7 +26,6 @@ function PostDetails() {
     createdAt,
     likesCount,
   } = post
-
   const handleLikeButton = async () => {
     try {
       await axios

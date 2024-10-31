@@ -46,7 +46,7 @@ function Write() {
         <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="p-2 md:p-10 border border-slate-400 rounded-md md:w-2/4 "
+          className="p-2 md:p-10 border border-slate-400 rounded-md"
         >
           <h1 className="text-4xl mb-7 text-center">Create Post</h1>
           <div className="mt-3">

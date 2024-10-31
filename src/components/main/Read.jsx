@@ -81,7 +81,7 @@ function Read() {
               Recommended
             </button>
           </div> */}
-          <div className="flex p-3">
+          <div className="flex p-3 w-1/2">
             <input
               onChange={(e) => setSearchkeyword(e.target.value)}
               type="text"
