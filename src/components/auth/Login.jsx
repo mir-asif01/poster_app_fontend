@@ -7,7 +7,6 @@ import { useState } from "react"
 
 function Login() {
   const { register, handleSubmit, reset } = useForm()
-  const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
   // add validations for empty input fields
   const onSubmit = async (data) => {
@@ -17,7 +16,6 @@ function Login() {
       .then((res) => {
         if (res?.data.success) {
           toast.success(res?.data?.message)
-          setIsLoading(false)
           reset()
           localStorage.setItem("user", JSON.stringify(res?.data?.user))
           setTimeout(() => {
@@ -81,7 +79,7 @@ function Login() {
               <input
                 className="bg-indigo-500 cursor-pointer font-semibold rounded-3xl text-white px-10 py-2 shadow-indigo-500 hover:shadow-md"
                 type="submit"
-                value={isLoading ? "Loading" : "Login"}
+                value={"Login"}
               />
             </div>
           </form>

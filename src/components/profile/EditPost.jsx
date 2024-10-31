@@ -8,8 +8,8 @@ export default function EditPost() {
   const res = useLoaderData()
   const post = res.data.post
   const contentRef = useRef(null)
-  const [content, setContent] = useState("")
-  const [summary, setSummary] = useState("")
+  const [content, setContent] = useState(post?.content)
+  const [summary, setSummary] = useState(post?.summary)
 
   const handleUpdateForm = async (e) => {
     e.preventDefault()
@@ -55,6 +55,7 @@ export default function EditPost() {
             <input
               className="outline-none border border-gray-300 rounded-md px-2 py-2 w-full"
               type="text"
+              value={summary}
               onChange={(e) => setSummary(e.target.value)}
               name="summary"
               placeholder="Summary of your post"

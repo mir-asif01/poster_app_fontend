@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import toast from "react-hot-toast"
 import { NavLink } from "react-router-dom"
 
 export default function ManagePosts() {
@@ -13,6 +14,22 @@ export default function ManagePosts() {
         .then((res) => {
           setPosts(res.data.posts)
         })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handlePostDelete = async (postId) => {
+    try {
+      axios.delete(`http://localhost:3000/post/${postId}`).then((res) => {
+        if (res.data.success) {
+          setPosts([...posts.filter((p) => p._id !== postId)])
+          toast.success("Post deleted")
+        }
+        if (!res.data.success) {
+          toast.error(res.data.message)
+        }
+      })
     } catch (error) {
       console.log(error)
     }
@@ -77,7 +94,10 @@ export default function ManagePosts() {
                   <button className="text-sm bg-green-500 text-white px-2 py-1 rounded-md">
                     <NavLink to={`/edit-post/${post._id}`}>Edit</NavLink>
                   </button>
-                  <button className="text-sm bg-red-500 text-white px-2 py-1 rounded-md">
+                  <button
+                    onClick={() => handlePostDelete(post?._id)}
+                    className="text-sm bg-red-500 text-white px-2 py-1 rounded-md"
+                  >
                     Delete
                   </button>
                 </div>
