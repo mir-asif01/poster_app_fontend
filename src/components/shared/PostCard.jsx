@@ -11,11 +11,12 @@ function PostCard({ post }) {
     creatorProfileImage,
     title,
     likesCount,
+    commentsCount,
     createdAt,
     creatorCurrentPosition,
   } = post
   return (
-    <div className="border bg-card drop-shadow-sm shadow-indigo-200 border-gray-300 rounded-md">
+    <div className="relative border bg-card drop-shadow-sm shadow-indigo-200 border-gray-300 rounded-md">
       <div className="border-b border-gray-200">
         <img src={postImage} className="w-full h-52 p-2" alt="" />
       </div>
@@ -44,7 +45,7 @@ function PostCard({ post }) {
         </div>
         <div className="flex justify-between items-center mt-3">
           <div className="flex justify-between gap-3 items-center mt-2 text-xs">
-            <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
+            <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white absolute top-2 right-2 border border-red-500 animate-pulse shadow-sm shadow-indigo-400">
               {new Date(createdAt).toLocaleDateString()}
             </p>
             <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
@@ -54,11 +55,14 @@ function PostCard({ post }) {
             <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
               {likesCount} {likesCount === 1 ? " Like" : "Likes"}
             </p>
+            <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
+              {commentsCount} {commentsCount === 1 ? " Comment" : "Comments"}
+            </p>
           </div>
           <div className="flex justify-between gap-6 items-center text-2xl">
             <NavLink to={`/read/${_id}`}>
               <p className="flex items-center justify-center gap-3">
-                <span className="text-lg">Read</span>
+                <span className="text-lg">More</span>
                 <FaArrowRightLong />
               </p>
             </NavLink>

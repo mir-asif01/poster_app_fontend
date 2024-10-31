@@ -5,7 +5,7 @@ import { RxCross1 } from "react-icons/rx"
 import { useLoaderData } from "react-router-dom"
 import axios from "axios"
 import toast, { Toaster } from "react-hot-toast"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function PostDetails() {
   const [commentDrawerOpen, setCommentDrawerOpen] = useState(false)
@@ -93,7 +93,9 @@ function PostDetails() {
     }
   }
 
-  fetchComments()
+  useEffect(() => {
+    fetchComments()
+  }, [])
 
   return (
     <section className="relative">
