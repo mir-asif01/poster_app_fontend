@@ -13,7 +13,9 @@ export default function AllPosts() {
   const fetchPosts = async () => {
     try {
       await axios
-        .get(`http://localhost:3000/posts-by-user?id=${loggedInUser._id}`)
+        .get(
+          `https://poster-app-backend.onrender.com/posts-by-user?id=${loggedInUser._id}`
+        )
         .then((res) => {
           setPosts(res.data.posts)
         })

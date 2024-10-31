@@ -24,7 +24,7 @@ function Register() {
     userData.append("facebookProfileLink", data.facebookProfileLink)
 
     await axios
-      .post("http://localhost:3000/register", userData, {
+      .post("https://poster-app-backend.onrender.com/register", userData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

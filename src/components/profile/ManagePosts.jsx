@@ -10,7 +10,9 @@ export default function ManagePosts() {
   const fetchPosts = async () => {
     try {
       await axios
-        .get(`http://localhost:3000/posts-by-user?id=${loggedInUser._id}`)
+        .get(
+          `https://poster-app-backend.onrender.com/posts-by-user?id=${loggedInUser._id}`
+        )
         .then((res) => {
           setPosts(res.data.posts)
         })
@@ -21,15 +23,17 @@ export default function ManagePosts() {
 
   const handlePostDelete = async (postId) => {
     try {
-      axios.delete(`http://localhost:3000/post/${postId}`).then((res) => {
-        if (res.data.success) {
-          setPosts([...posts.filter((p) => p._id !== postId)])
-          toast.success("Post deleted")
-        }
-        if (!res.data.success) {
-          toast.error(res.data.message)
-        }
-      })
+      axios
+        .delete(`https://poster-app-backend.onrender.com/post/${postId}`)
+        .then((res) => {
+          if (res.data.success) {
+            setPosts([...posts.filter((p) => p._id !== postId)])
+            toast.success("Post deleted")
+          }
+          if (!res.data.success) {
+            toast.error(res.data.message)
+          }
+        })
     } catch (error) {
       console.log(error)
     }
@@ -89,7 +93,7 @@ export default function ManagePosts() {
                   </div>
                 </div>
                 <div className="flex justify-between items-center mt-3">
-                  <div className="flex justify-between gap-3 items-center mt-2 text-[0.55rem]">
+                  <div className="flex justify-between gap-3 items-center mt-2 text-[0.55rem] md:text-sm">
                     <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white">
                       {new Date(post.createdAt).toLocaleDateString()}
                     </p>

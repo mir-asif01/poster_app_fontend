@@ -11,7 +11,7 @@ function Login() {
   // add validations for empty input fields
   const onSubmit = async (data) => {
     await axios
-      .post("http://localhost:3000/login", data)
+      .post("https://poster-app-backend.onrender.com/login", data)
       .then((res) => {
         if (res?.data.success) {
           toast.success(res?.data?.message)

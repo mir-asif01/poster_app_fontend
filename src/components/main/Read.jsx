@@ -16,7 +16,7 @@ function Read() {
       // update the posts state - > setPosts() to show searched results
       await axios
         .get(
-          `http://localhost:3000/search-post?search_keyword=${searchkeyWord}`
+          `https://poster-app-backend.onrender.com/search-post?search_keyword=${searchkeyWord}`
         )
         .then((res) => {
           console.log(res)
@@ -33,10 +33,12 @@ function Read() {
 
   const fetchPosts = async () => {
     try {
-      await axios.get("http://localhost:3000/posts").then((res) => {
-        setPosts(res.data.posts)
-        setLoading(false)
-      })
+      await axios
+        .get("https://poster-app-backend.onrender.com/posts")
+        .then((res) => {
+          setPosts(res.data.posts)
+          setLoading(false)
+        })
     } catch (error) {
       console.log(error)
     }

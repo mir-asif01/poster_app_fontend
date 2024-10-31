@@ -1,0 +1,2 @@
+api development server - http://localhost:3000/ 
+api production server - https://poster-app-backend.onrender.com/

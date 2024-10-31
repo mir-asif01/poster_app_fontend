@@ -43,7 +43,9 @@ export const routes = createBrowserRouter([
       {
         path: "/read/:id",
         loader: async ({ params }) =>
-          await axios.get(`http://localhost:3000/posts/${params.id}`),
+          await axios.get(
+            `https://poster-app-backend.onrender.com/posts/${params.id}`
+          ),
         element: <PostDetails />,
       },
       {
@@ -57,7 +59,9 @@ export const routes = createBrowserRouter([
       {
         path: "/users/:id",
         loader: async ({ params }) =>
-          await fetch(`http://localhost:3000/users/${params.id}`),
+          await fetch(
+            `https://poster-app-backend.onrender.com/users/${params.id}`
+          ),
         element: <PostCreatorProfile></PostCreatorProfile>,
       },
       {
@@ -71,7 +75,9 @@ export const routes = createBrowserRouter([
       {
         path: "edit-post/:id",
         loader: async ({ params }) =>
-          await axios.get(`http://localhost:3000/posts/${params.id}`),
+          await axios.get(
+            `https://poster-app-backend.onrender.com/posts/${params.id}`
+          ),
         element: <EditPost />,
       },
       {

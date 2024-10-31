@@ -29,7 +29,7 @@ function PostDetails() {
   const handleLikeButton = async () => {
     try {
       await axios
-        .post("http://localhost:3000/add-one-like", {
+        .post("https://poster-app-backend.onrender.com/add-one-like", {
           userId: loggedInUser._id,
           postId: _id,
         })
@@ -53,7 +53,9 @@ function PostDetails() {
   const fetchComments = async () => {
     try {
       await axios
-        .get(`http://localhost:3000/comments-for-post?id=${_id}`)
+        .get(
+          `https://poster-app-backend.onrender.com/comments-for-post?id=${_id}`
+        )
         .then((res) => {
           if (res.data.success) {
             setCommentsArray(res.data.comments)
@@ -81,7 +83,7 @@ function PostDetails() {
         { ...newComment, createdAt: Date.now() },
       ])
       await axios
-        .post("http://localhost:3000/add-comment", newComment)
+        .post("https://poster-app-backend.onrender.com/add-comment", newComment)
         .then((res) => {
           if (res.data.success) {
             toast.success(res.data.message)

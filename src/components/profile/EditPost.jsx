@@ -18,7 +18,7 @@ export default function EditPost() {
         toast.error("Input filed is empty!")
       }
       await axios
-        .patch("http://localhost:3000/edit-post", {
+        .patch("https://poster-app-backend.onrender.com/edit-post", {
           postId: post?._id,
           newSummary: summary,
           newContent: content,

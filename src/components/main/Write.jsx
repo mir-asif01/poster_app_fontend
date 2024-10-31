@@ -28,7 +28,7 @@ function Write() {
     postData.append("creatorCurrentPosition", loggedInUser.currentPosition)
 
     axios
-      .post("http://localhost:3000/create-post", postData)
+      .post("https://poster-app-backend.onrender.com/create-post", postData)
       .then((res) => {
         if (res.data.success) {
           toast.success("Post created successfully")

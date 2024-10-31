@@ -44,8 +44,8 @@ function PostCard({ post }) {
           </div>
         </div>
         <div className="flex justify-between items-center mt-3">
-          <div className="flex justify-between gap-3 items-center mt-2 text-[0.55rem]">
-            <p className="bg-slate-900 px-2 py-1 rounded-3xl text-white absolute top-2 right-2 border border-red-500 animate-pulse shadow-sm shadow-indigo-400">
+          <div className="flex justify-between gap-3 items-center mt-2 text-[0.55rem] md:text-sm">
+            <p className="bg-slate-900 px-2 py-1 rounded-md text-white absolute top-0 right-0 border border-red-500 animate-pulse shadow-sm shadow-indigo-400">
               {new Date(createdAt).toLocaleDateString()}
             </p>
             <p className="bg-slate-900 p-1 md:px-2 md:py-1 rounded-3xl text-white">
