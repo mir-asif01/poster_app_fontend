@@ -20,12 +20,12 @@ function Navbar() {
       <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
       <nav className="flex sticky top-0 z-10 bg justify-between items-center px-4 py-3 md:px-20 md:py-4 border-b border-black">
         <div>
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-xl md:text-4xl font-bold">
             <NavLink to={"/"}>Poster</NavLink>
           </h1>
         </div>
         <div>
-          <ul className="flex justify-between items-center gap-5">
+          <ul className="flex justify-between items-center gap-2 md:gap-5">
             {user?.email ? (
               <>
                 <li>

@@ -27,7 +27,7 @@ export default function AllPosts() {
   }, [])
 
   return (
-    <div className="md:py-10 md:px-48">
+    <div className="p-3 md:py-10 md:px-48">
       <h1 className="text-3xl text-center mb-1">"Posts added by you"</h1>
       <p className="text-center font-semibold mb-10">profile/all-posts</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center justify-center">

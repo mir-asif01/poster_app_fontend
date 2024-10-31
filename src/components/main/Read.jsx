@@ -59,7 +59,7 @@ function Read() {
   return (
     <>
       <section className="md:py-10 md:px-48">
-        <div className="border border-indigo-500 border-opacity-25 hover:border-opacity-60 hover:transition-all hover:duration-300 rounded-lg flex justify-center items-center">
+        <div className="m-2 md:m-0 border border-indigo-500 border-opacity-25 hover:border-opacity-60 hover:transition-all hover:duration-300 rounded-lg flex justify-center items-center">
           {/* <div className="flex justify-center items-center">
             <button
               onClick={(e) => {
@@ -80,7 +80,7 @@ function Read() {
               Recommended
             </button>
           </div> */}
-          <div className="flex p-3 w-1/2">
+          <div className="flex p-1 md:p-3 w-full md:w-1/2">
             <input
               onChange={(e) => setSearchkeyword(e.target.value)}
               type="text"
