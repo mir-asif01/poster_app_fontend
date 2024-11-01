@@ -15,6 +15,8 @@ function Profile() {
     facebookProfileLink,
     githubProfileLink,
     linkedInProfileLink,
+    likesCount,
+    postsCount,
   } = user
 
   return (
@@ -71,10 +73,10 @@ function Profile() {
               <p className=" text-justify">{about}</p>
               <p className="flex justify-center items-center gap-5 mt-3">
                 <span className="bg-slate-900 text-white px-3 py-1 rounded-full text-xs">
-                  Number of posts {10}
+                  Number of posts {postsCount ? postsCount : 0}
                 </span>
                 <span className="bg-slate-900 text-white px-3 py-1 rounded-full text-xs">
-                  Number of likes {111}
+                  Number of likes {likesCount ? likesCount : 0}
                 </span>
               </p>
             </div>
