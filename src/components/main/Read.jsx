@@ -16,7 +16,7 @@ function Read() {
       // update the posts state - > setPosts() to show searched results
       await axios
         .get(
-          `https://poster-app-backend.onrender.com/search-post?search_keyword=${searchkeyWord}`
+          `https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/search-post?search_keyword=${searchkeyWord}`
         )
         .then((res) => {
           console.log(res)
@@ -34,7 +34,9 @@ function Read() {
   const fetchPosts = async () => {
     try {
       await axios
-        .get("https://poster-app-backend.onrender.com/posts")
+        .get(
+          "https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/posts"
+        )
         .then((res) => {
           setPosts(res.data.posts)
           setLoading(false)

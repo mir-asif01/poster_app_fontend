@@ -28,7 +28,10 @@ function Write() {
     postData.append("creatorCurrentPosition", loggedInUser.currentPosition)
 
     axios
-      .post("https://poster-app-backend.onrender.com/create-post", postData)
+      .post(
+        "https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/create-post",
+        postData
+      )
       .then((res) => {
         if (res.data.success) {
           toast.success("Post created successfully")

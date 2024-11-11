@@ -29,10 +29,13 @@ function PostDetails() {
   const handleLikeButton = async () => {
     try {
       await axios
-        .post("https://poster-app-backend.onrender.com/add-one-like", {
-          userId: loggedInUser._id,
-          postId: _id,
-        })
+        .post(
+          "https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/add-one-like",
+          {
+            userId: loggedInUser._id,
+            postId: _id,
+          }
+        )
         .then((res) => {
           if (res.data.success) {
             toast.success(res.data.message)
@@ -54,7 +57,7 @@ function PostDetails() {
     try {
       await axios
         .get(
-          `https://poster-app-backend.onrender.com/comments-for-post?id=${_id}`
+          `https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/comments-for-post?id=${_id}`
         )
         .then((res) => {
           if (res.data.success) {
@@ -83,7 +86,10 @@ function PostDetails() {
         { ...newComment, createdAt: Date.now() },
       ])
       await axios
-        .post("https://poster-app-backend.onrender.com/add-comment", newComment)
+        .post(
+          "https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/add-comment",
+          newComment
+        )
         .then((res) => {
           if (res.data.success) {
             toast.success(res.data.message)

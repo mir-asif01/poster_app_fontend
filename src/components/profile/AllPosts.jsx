@@ -14,7 +14,7 @@ export default function AllPosts() {
     try {
       await axios
         .get(
-          `https://poster-app-backend.onrender.com/posts-by-user?id=${loggedInUser._id}`
+          `https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/posts-by-user?id=${loggedInUser._id}`
         )
         .then((res) => {
           setPosts(res.data.posts)

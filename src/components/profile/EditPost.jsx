@@ -18,11 +18,14 @@ export default function EditPost() {
         toast.error("Input filed is empty!")
       }
       await axios
-        .patch("https://poster-app-backend.onrender.com/edit-post", {
-          postId: post?._id,
-          newSummary: summary,
-          newContent: content,
-        })
+        .patch(
+          "https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/edit-post",
+          {
+            postId: post?._id,
+            newSummary: summary,
+            newContent: content,
+          }
+        )
         .then((res) => {
           if (!res.data.success) {
             toast.error(res.data.message)

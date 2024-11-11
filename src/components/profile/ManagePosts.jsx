@@ -11,7 +11,7 @@ export default function ManagePosts() {
     try {
       await axios
         .get(
-          `https://poster-app-backend.onrender.com/posts-by-user?id=${loggedInUser._id}`
+          `https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/posts-by-user?id=${loggedInUser._id}`
         )
         .then((res) => {
           setPosts(res.data.posts)
@@ -24,7 +24,9 @@ export default function ManagePosts() {
   const handlePostDelete = async (postId) => {
     try {
       axios
-        .delete(`https://poster-app-backend.onrender.com/post/${postId}`)
+        .delete(
+          `https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/post/${postId}`
+        )
         .then((res) => {
           if (res.data.success) {
             setPosts([...posts.filter((p) => p._id !== postId)])

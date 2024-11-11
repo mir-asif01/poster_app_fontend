@@ -44,7 +44,7 @@ export const routes = createBrowserRouter([
         path: "/read/:id",
         loader: async ({ params }) =>
           await axios.get(
-            `https://poster-app-backend.onrender.com/posts/${params.id}`
+            `https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/posts/${params.id}`
           ),
         element: <PostDetails />,
       },
@@ -60,7 +60,7 @@ export const routes = createBrowserRouter([
         path: "/users/:id",
         loader: async ({ params }) =>
           await fetch(
-            `https://poster-app-backend.onrender.com/users/${params.id}`
+            `https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/users/${params.id}`
           ),
         element: <PostCreatorProfile></PostCreatorProfile>,
       },
@@ -76,7 +76,7 @@ export const routes = createBrowserRouter([
         path: "edit-post/:id",
         loader: async ({ params }) =>
           await axios.get(
-            `https://poster-app-backend.onrender.com/posts/${params.id}`
+            `https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/posts/${params.id}`
           ),
         element: <EditPost />,
       },

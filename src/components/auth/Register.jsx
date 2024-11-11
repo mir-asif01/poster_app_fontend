@@ -24,11 +24,15 @@ function Register() {
     userData.append("facebookProfileLink", data.facebookProfileLink)
 
     await axios
-      .post("https://poster-app-backend.onrender.com/register", userData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .post(
+        "https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/register",
+        userData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
       .then((res) => {
         if (res.data.success) {
           toast.success("Registration Successfull")

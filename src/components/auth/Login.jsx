@@ -11,7 +11,10 @@ function Login() {
   // add validations for empty input fields
   const onSubmit = async (data) => {
     await axios
-      .post("https://poster-app-backend.onrender.com/login", data)
+      .post(
+        "https://posterbackend-d96664smb-mirasif01s-projects.vercel.app/login",
+        data
+      )
       .then((res) => {
         if (res?.data.success) {
           toast.success(res?.data?.message)
